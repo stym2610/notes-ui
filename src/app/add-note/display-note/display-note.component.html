@@ -1,0 +1,41 @@
+<!-- <div class="panel">
+    <div class="panel-body">                                                  // LIST VIEW CODE
+        <p>
+            {{ displayNote }}
+        </p>
+        <button class="btn btn-defult btn-sm delButton" (click)="onClick()">
+            Delete
+        </button>
+    </div>
+</div> -->
+
+<div class="box" @bounce>
+    <div class="text">
+        {{ displayNote }}
+        <div
+            class="btn btn-defult btn-sm pinButton" 
+            [class.isPinned]="isPinned" 
+            (click)="onClickPin()">
+            <span class="w3-large fa fa-map-marker">
+            </span>
+        </div>
+    </div>
+    
+        <!--
+            
+        -->
+     
+    <div class="d-flex toolbar">
+        <div class="flex-fill icon fa fa-battery-empty "></div>
+        <div class="flex-fill icon fa fa-battery-quarter "></div>
+        <div class="flex-fill icon fa fa-battery-half "></div>
+        <div class="flex-fill icon fa fa-battery-three-quarters "></div>
+        <div class="flex-fill icon fa fa-battery-full  "></div>
+        <div 
+            class="btn btn-defult btn-sm delButton flex-fill" 
+            (click)="onClickDelete()">
+            <span class="w3-large fa fa-trash">
+            </span>
+        </div>
+    </div>   
+</div>

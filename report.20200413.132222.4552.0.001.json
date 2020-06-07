@@ -1,0 +1,457 @@
+
+{
+  "header": {
+    "reportVersion": 2,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200413.132222.4552.0.001.json",
+    "dumpEventTime": "2020-04-13T13:22:23Z",
+    "dumpEventTimeStamp": "1586764343000",
+    "processId": 4552,
+    "threadId": null,
+    "cwd": "D:\\html\\notes",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Program Files\\nodejs/node_modules/@angular/cli/bin/ng",
+      "serve"
+    ],
+    "nodejsVersion": "v13.11.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "13.11.0",
+      "v8": "7.9.317.25-node.29",
+      "uv": "1.34.2",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "79",
+      "nghttp2": "1.40.0",
+      "napi": "6",
+      "llhttp": "2.0.4",
+      "openssl": "1.1.1d",
+      "cldr": "36.0",
+      "icu": "65.1",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v13.11.0/node-v13.11.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v13.11.0/node-v13.11.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v13.11.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "6.1.7600",
+    "osVersion": "Windows 7 Ultimate",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz",
+        "speed": 2494,
+        "user": 6572400,
+        "nice": 0,
+        "sys": 4247376,
+        "idle": 69339277,
+        "irq": 329505
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz",
+        "speed": 2494,
+        "user": 2309251,
+        "nice": 0,
+        "sys": 658823,
+        "idle": 77190418,
+        "irq": 3525
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz",
+        "speed": 2494,
+        "user": 6812828,
+        "nice": 0,
+        "sys": 3763071,
+        "idle": 69582545,
+        "irq": 25506
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz",
+        "speed": 2494,
+        "user": 1225231,
+        "nice": 0,
+        "sys": 268118,
+        "idle": 78664892,
+        "irq": 1372
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "DELL-PC"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x000000013f8a2539",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013f8a69e9",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013f8a5868",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013f9cd272",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001401fb93e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001401e3091",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001400aa0fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001400b215b",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001400a7643",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001400a5dd4",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001400c7ea4",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013fe22271",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000014064528d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000140621cdf",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001405ef925",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001405ce5fc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000140105f7f",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000140106073",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000140106455",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000001400e89b5",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013fa4e362",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013fa4e0ce",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013fa2cc24",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013fa800a4",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013fa7caec",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013f989ca1",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013f9f67f0",
+      "symbol": ""
+    },
+    {
+      "pc": "0x000000013f876afc",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000140702c98",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000076c6f33d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x0000000076da3281",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 277798912,
+    "totalCommittedMemory": 277798912,
+    "usedMemory": 264998184,
+    "availableMemory": 1932540536,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 33040,
+        "used": 33040,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 1048576,
+        "committedMemory": 1048576,
+        "capacity": 1047424,
+        "used": 1047392,
+        "available": 32
+      },
+      "old_space": {
+        "memorySize": 179712000,
+        "committedMemory": 179712000,
+        "capacity": 179019472,
+        "used": 177260984,
+        "available": 1758488
+      },
+      "code_space": {
+        "memorySize": 3313664,
+        "committedMemory": 3313664,
+        "capacity": 3150784,
+        "used": 2621632,
+        "available": 529152
+      },
+      "map_space": {
+        "memorySize": 12324864,
+        "committedMemory": 12324864,
+        "capacity": 12310816,
+        "used": 3121760,
+        "available": 9189056
+      },
+      "large_object_space": {
+        "memorySize": 80515072,
+        "committedMemory": 80515072,
+        "capacity": 80368992,
+        "used": 80368992,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 622592,
+        "committedMemory": 622592,
+        "capacity": 544384,
+        "used": 544384,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047424,
+        "used": 0,
+        "available": 1047424
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 123.303,
+    "kernelCpuSeconds": 7.394,
+    "cpuConsumptionPercent": 0.225173,
+    "maxRss": 749195264,
+    "pageFaults": {
+      "IORequired": 925152,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 7451,
+      "writes": 274
+    }
+  },
+  "libuv": [
+  ],
+  "workers": [
+  ],
+  "environmentVariables": {
+    "=::": "::\\",
+    "ACLOCAL_PATH": "C:\\Program Files\\Git\\mingw64\\share\\aclocal;C:\\Program Files\\Git\\usr\\share\\aclocal",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\DELL\\AppData\\Roaming",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "DELL-PC",
+    "COMSPEC": "C:\\Windows\\system32\\cmd.exe",
+    "CONFIG_SITE": "C:/Program Files/Git/mingw64/etc/config.site",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "DISPLAY": "needs-to-be-defined",
+    "EXEPATH": "C:\\Program Files\\Git",
+    "FP_NO_HOST_CHECK": "NO",
+    "GOOGLE_API_KEY": "no",
+    "GOOGLE_DEFAULT_CLIENT_ID": "no",
+    "GOOGLE_DEFAULT_CLIENT_SECRET": "no",
+    "HOME": "C:\\Users\\DELL",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\DELL",
+    "HOSTNAME": "DELL-PC",
+    "INFOPATH": "C:\\Program Files\\Git\\usr\\local\\info;C:\\Program Files\\Git\\usr\\share\\info;C:\\Program Files\\Git\\usr\\info;C:\\Program Files\\Git\\share\\info",
+    "LANG": "en_US.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\DELL\\AppData\\Local",
+    "LOGONSERVER": "\\\\DELL-PC",
+    "MANPATH": "C:\\Program Files\\Git\\mingw64\\local\\man;C:\\Program Files\\Git\\mingw64\\share\\man;C:\\Program Files\\Git\\usr\\local\\man;C:\\Program Files\\Git\\usr\\share\\man;C:\\Program Files\\Git\\usr\\man;C:\\Program Files\\Git\\share\\man",
+    "MINGW_CHOST": "x86_64-w64-mingw32",
+    "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+    "MINGW_PREFIX": "C:/Program Files/Git/mingw64",
+    "MSYSTEM": "MINGW64",
+    "MSYSTEM_CARCH": "x86_64",
+    "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+    "MSYSTEM_PREFIX": "C:/Program Files/Git/mingw64",
+    "NUMBER_OF_PROCESSORS": "4",
+    "NVM_CD_FLAGS": "",
+    "NVM_DIR": "C:/Users/DELL/.nvm",
+    "NVM_HOME": "C:\\Users\\DELL\\AppData\\Roaming\\nvm",
+    "NVM_IOJS_ORG_MIRROR": "https://iojs.org/dist",
+    "NVM_NODEJS_ORG_MIRROR": "https://nodejs.org/dist",
+    "NVM_RC_VERSION": "",
+    "NVM_SYMLINK": "C:\\Program Files\\nodejs",
+    "ORIGINAL_PATH": "C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\DELL\\bin;C:\\Users\\DELL\\AppData\\Roaming\\nvm;C:\\Users\\DELL\\AppData\\Roaming\\npm;C:\\Users\\DELL\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs;C:\\Users\\DELL\\AppData\\Local\\Programs\\Microsoft VS Code\\bin",
+    "ORIGINAL_TEMP": "C:/Users/DELL/AppData/Local/Temp",
+    "ORIGINAL_TMP": "C:/Users/DELL/AppData/Local/Temp",
+    "OS": "Windows_NT",
+    "PATH": "C:\\Users\\DELL\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\local\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\mingw64\\bin;C:\\Program Files\\Git\\usr\\bin;C:\\Users\\DELL\\bin;C:\\Users\\DELL\\AppData\\Roaming\\nvm;C:\\Users\\DELL\\AppData\\Roaming\\npm;C:\\Users\\DELL\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs;C:\\Users\\DELL\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Program Files\\Git\\usr\\bin\\vendor_perl;C:\\Program Files\\Git\\usr\\bin\\core_perl",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "PKG_CONFIG_PATH": "C:\\Program Files\\Git\\mingw64\\lib\\pkgconfig;C:\\Program Files\\Git\\mingw64\\share\\pkgconfig",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 42 Stepping 7, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "2a07",
+    "PROGRAMFILES": "C:\\Program Files",
+    "PSModulePath": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\",
+    "PUBLIC": "C:\\Users\\Public",
+    "PWD": "D:/html/notes",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "SESSIONNAME": "Console",
+    "SHELL": "C:\\Program Files\\Git\\usr\\bin\\bash.exe",
+    "SHLVL": "2",
+    "SSH_ASKPASS": "C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\Windows",
+    "TEMP": "C:\\Users\\DELL\\AppData\\Local\\Temp",
+    "TERM": "xterm",
+    "TMP": "C:\\Users\\DELL\\AppData\\Local\\Temp",
+    "TMPDIR": "C:\\Users\\DELL\\AppData\\Local\\Temp",
+    "USERDOMAIN": "DELL-PC",
+    "USERNAME": "DELL",
+    "USERPROFILE": "C:\\Users\\DELL",
+    "WEBPACK_DEV_SERVER": "true",
+    "WINDIR": "C:\\Windows",
+    "_": "C:\\Program Files\\nodejs/node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\system32\\kernel32.dll",
+    "C:\\Windows\\system32\\KERNELBASE.dll",
+    "C:\\Windows\\system32\\dbghelp.dll",
+    "C:\\Windows\\system32\\msvcrt.dll",
+    "C:\\Windows\\system32\\WS2_32.dll",
+    "C:\\Windows\\system32\\RPCRT4.dll",
+    "C:\\Windows\\system32\\NSI.dll",
+    "C:\\Windows\\system32\\IPHLPAPI.DLL",
+    "C:\\Windows\\system32\\WINNSI.DLL",
+    "C:\\Windows\\system32\\PSAPI.DLL",
+    "C:\\Windows\\system32\\USERENV.dll",
+    "C:\\Windows\\system32\\profapi.dll",
+    "C:\\Windows\\system32\\ADVAPI32.dll",
+    "C:\\Windows\\SYSTEM32\\sechost.dll",
+    "C:\\Windows\\system32\\USER32.dll",
+    "C:\\Windows\\system32\\GDI32.dll",
+    "C:\\Windows\\system32\\LPK.dll",
+    "C:\\Windows\\system32\\USP10.dll",
+    "C:\\Windows\\system32\\CRYPT32.dll",
+    "C:\\Windows\\system32\\MSASN1.dll",
+    "C:\\Windows\\system32\\bcrypt.dll",
+    "C:\\Windows\\system32\\WINMM.dll",
+    "C:\\Windows\\system32\\IMM32.DLL",
+    "C:\\Windows\\system32\\MSCTF.dll",
+    "C:\\Windows\\system32\\nvinitx.dll",
+    "C:\\Windows\\system32\\VERSION.dll",
+    "C:\\Program Files\\NVIDIA Corporation\\CoProcManager\\detoured.dll",
+    "C:\\Program Files\\NVIDIA Corporation\\CoProcManager\\nvd3d9wrapx.dll",
+    "C:\\Windows\\system32\\SETUPAPI.dll",
+    "C:\\Windows\\system32\\CFGMGR32.dll",
+    "C:\\Windows\\system32\\OLEAUT32.dll",
+    "C:\\Windows\\system32\\ole32.dll",
+    "C:\\Windows\\system32\\DEVOBJ.dll",
+    "C:\\Program Files\\NVIDIA Corporation\\CoProcManager\\nvdxgiwrapx.dll",
+    "C:\\Windows\\system32\\powrprof.dll",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\wshtcpip.dll",
+    "C:\\Windows\\System32\\wship6.dll",
+    "C:\\Windows\\system32\\bcryptprimitives.dll",
+    "C:\\Windows\\system32\\dhcpcsvc.DLL",
+    "C:\\Windows\\system32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\DNSAPI.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\system32\\wshbth.dll",
+    "C:\\Windows\\system32\\cryptbase.dll",
+    "C:\\Windows\\system32\\rasadhlp.dll",
+    "C:\\Windows\\System32\\fwpuclnt.dll",
+    "C:\\Windows\\system32\\apphelp.dll"
+  ]
+}

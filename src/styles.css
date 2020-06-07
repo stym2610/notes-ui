@@ -1,0 +1,114 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap-grid.css";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+
+
+body {
+    background-color: rgb(42, 42, 42);
+    color: powderblue;
+}
+
+.main {
+    width: 80%;
+}
+
+.form-control {
+    margin : 10px 10% 10px 10%;
+    width: 80%;
+    border-color: powderblue;
+    background-color: rgb(42, 42, 42);
+    color: powderblue;
+}
+
+.form-control:focus {
+    background-color: rgb(42, 42, 42);
+    color: powderblue;
+}
+
+.list-group.list-group-item {
+    margin: 0 5% 10px 5%;
+    width: 80%;
+}
+
+.panel{
+    border: 1px solid powderblue;
+    margin: 10px 10%;
+    padding: 10px 5px 50px 10px;
+    border-radius: 10px;
+}
+
+.delButton{
+    color: grey;
+}
+
+.delButton:hover {
+    background-color: grey;
+    color: white; 
+}
+
+.text {
+    position: relative;
+    padding: 8px 8px 30px 16px;
+}
+
+.pinButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: grey;
+}
+
+.pinButton:hover {
+    background-color: grey;
+    color: white;
+    border-radius: 50%;
+}
+
+.isPinned {
+    color: rgb(102, 102, 241);
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 200px;
+    margin: 2px;
+    word-wrap: break-word;
+}
+
+
+.box:hover .toolbar {
+    opacity: 1;
+}
+
+
+.toolbar {
+    opacity: 0;
+}
+
+.icon {
+    height: 30px;
+    width: 30px;
+    margin: 0px 1px;
+    padding: 6px 0px;
+    text-align: center;
+    color: grey;
+}
+
+.icon:hover {
+    background-color: grey;
+    color: white;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+
+
+
+
