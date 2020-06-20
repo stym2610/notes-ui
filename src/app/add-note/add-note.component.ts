@@ -24,6 +24,7 @@ export class AddNoteComponent implements OnInit {
   
   notesDataObservable : Observable<{ notes: NOTE[] }>;
   notes;
+  searchString;
 
   ngOnInit(){
     this.getNotes();
@@ -85,5 +86,11 @@ export class AddNoteComponent implements OnInit {
       }
     }
   }
+
+  search(searchString) {
+    console.log(searchString);
+    this.searchString = searchString;
+  }
+
 
 }

@@ -10,6 +10,11 @@ body {
     color: powderblue;
 }
 
+hr {
+    height: 0.1px;
+    background-color: grey;
+}
+
 .main {
     width: 80%;
 }
@@ -89,14 +94,12 @@ body {
     transform: scale(1.06);
 }
 
+.toolbar {
+    opacity: 0;
+}
 
 .box:hover .toolbar {
     opacity: 1;
-}
-
-
-.toolbar {
-    opacity: 0;
 }
 
 .icon {
@@ -106,13 +109,14 @@ body {
     padding: 6px 0px;
     text-align: center;
     color: grey;
+    transition: 350ms;
+    border-radius: 50%;
 }
 
 .icon:hover {
     background-color: grey;
     color: white;
     border-radius: 50%;
-    transition: 0.2s;
 }
 
  .mat-dialog-container {

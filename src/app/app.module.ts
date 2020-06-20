@@ -8,7 +8,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { DisplayNoteComponent } from './add-note/display-note/display-note.component';
 import { StoreModule } from '@ngrx/store';
@@ -16,14 +15,15 @@ import { rootReducer } from './store/rootreducer';
 import { EffectsModule } from '@ngrx/effects';
 import { NotesEffects } from './store';
 import { EditNoteComponent } from './edit-note/edit-note.component';
+import { SearchPipe } from './search.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
     AddNoteComponent,
-    DisplayNoteComponent
+    DisplayNoteComponent,
+    SearchPipe
   ],
   entryComponents: [
     EditNoteComponent

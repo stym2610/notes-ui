@@ -1,5 +1,16 @@
 <div>
     <input 
+        type="text"
+        class="form-control"
+        placeholder="Search"
+        #searchStringTemplate
+        (keyup.enter)=search(searchStringTemplate.value)>
+</div>  
+
+<hr>
+
+<div>
+    <input 
         type="text" 
         placeholder="Add note here..."
         #note
@@ -10,7 +21,7 @@
 <br><br>
 
 <div class="flex-container">
-    <ng-container *ngFor="let note of (notesDataObservable | async).notes ">
+    <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
         <display-note 
             *ngIf="note.isPinned"    
             [displayNote]="note"
@@ -24,7 +35,7 @@
 <br><br>
 
 <div class="flex-container">
-    <ng-container *ngFor="let note of (notesDataObservable | async).notes">
+    <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
         <display-note
         *ngIf="!note.isPinned"    
         [displayNote]="note"

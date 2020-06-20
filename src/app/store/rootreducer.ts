@@ -5,8 +5,9 @@ export interface NOTES {
     notes : NOTE[]
 }
 
-export const INITIAL_STATE: NOTES = {
-    notes : []
+export const INITIAL_STATE = {
+    notes: [],
+    searchString: ''
 }
 
 export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesActionType) {
