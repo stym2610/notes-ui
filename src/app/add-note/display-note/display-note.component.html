@@ -9,9 +9,9 @@
     </div>
 </div> -->
 
-<div class="box" @bounce>
-    <div class="text">
-        {{ displayNote }}
+<div class="box" @fade>
+    <div class="text"  (click)="openDialog()">
+        {{ displayNote.value }}
         <div
             class="btn btn-defult btn-sm pinButton" 
             [class.isPinned]="isPinned" 

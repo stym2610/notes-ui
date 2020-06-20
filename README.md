@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Notes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
@@ -29,3 +30,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 =======
 # notes-project
 >>>>>>> fa2a729aa37d9c0be78761959eb6fb7b67b1bf63
+=======
+# Notes_project
+>>>>>>> a6da53731a0b92d97a70d27439b09090b01f8b21

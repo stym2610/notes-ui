@@ -29,8 +29,10 @@ app.post('/notes', (request, response) => {
 
 app.put('/notes/:id', (request, response) => {
     let newObject = request.body;
+    let isObjectValid = false;
     let objectFound = false;
-    if(false){
+    if(newObject.hasOwnProperty("value") && newObject.hasOwnProperty("id") && newObject.hasOwnProperty("isPinned")){isObjectValid = true}     
+    if(!isObjectValid){
         response.status(500).send({error : "wrong value OR value field is empty..!"});
     } else {
         let notes = JSON.parse(fs.readFileSync("../database/saved-notes.json").toString());
@@ -70,7 +72,7 @@ app.delete('/notes/:id', (request, response) => {
 
 
 app.listen(3000, () => {
-    console.log("API is running..!")
+    console.log("API is running at localhost:3000/notes")
 });
 
 

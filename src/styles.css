@@ -2,6 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~bootstrap/dist/css/bootstrap-grid.css";
 @import "~bootstrap/dist/css/bootstrap-grid.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
 body {
@@ -24,6 +25,7 @@ body {
 .form-control:focus {
     background-color: rgb(42, 42, 42);
     color: powderblue;
+    box-shadow: none;
 }
 
 .list-group.list-group-item {
@@ -78,8 +80,13 @@ body {
     border: 1px solid grey;
     border-radius: 10px;
     width: 200px;
-    margin: 2px;
+    margin: 9px 9px 2px 2px;
     word-wrap: break-word;
+    transition: 0.15s linear;
+}
+
+.box:hover {
+    transform: scale(1.06);
 }
 
 
@@ -108,7 +115,39 @@ body {
     transition: 0.2s;
 }
 
+ .mat-dialog-container {
+    padding: 15px 15px 10px !important;
+    width: 600px !important;
+    background-color: rgb(42, 42, 42) !important;
+    border-radius: 20px !important;
+    position: relative !important;
+}
 
+.editbox {  
+    border: none;
+    width: 100%;
+    color: powderblue; 
+    margin-bottom: 40px;
+    word-wrap: break-word;
+}
 
+.editbox:focus {
+    outline: none;
+}
 
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+}
 
+.closeDialogButton {
+    background: none;
+    border: none;
+    color: powderblue;
+}
+
+.closeDialogButton:focus {
+    outline: none;
+}
+
+ 

@@ -1,0 +1,14 @@
+<div 
+    role="textbox"
+    contenteditable 
+    class="editbox"
+    [textContent]="newText"
+    (input)="newText=$event.target.textContent">
+</div>
+
+<div class="buttonContainer">
+    <button class="closeDialogButton" (click)="closeDialog()" mat-dialog-close> Close </button>
+</div>
+
+
+

@@ -10,13 +10,13 @@
 <br><br>
 
 <div class="flex-container">
-    <ng-container *ngFor="let note of notes">
+    <ng-container *ngFor="let note of (notesDataObservable | async).notes ">
         <display-note 
-        *ngIf="note.isPinned"    
-        [displayNote]="note.value"
-        [isPinned]="note.isPinned"
-        (pinnote)="pinNote(note.id)"
-        (deletenote)="deleteNote(note.id)">      
+            *ngIf="note.isPinned"    
+            [displayNote]="note"
+            [isPinned]="note.isPinned"
+            (pinnote)="pinNote(note.id)"
+            (deletenote)="deleteNote(note.id)">      
         </display-note>
     </ng-container>   
 </div>
@@ -24,10 +24,10 @@
 <br><br>
 
 <div class="flex-container">
-    <ng-container *ngFor="let note of notes">
+    <ng-container *ngFor="let note of (notesDataObservable | async).notes">
         <display-note
         *ngIf="!note.isPinned"    
-        [displayNote]="note.value"
+        [displayNote]="note"
         [isPinned]="note.isPinned"
         (pinnote)="pinNote(note.id)"
         (deletenote)="deleteNote(note.id)">      
