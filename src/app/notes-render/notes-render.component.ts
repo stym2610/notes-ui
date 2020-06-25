@@ -12,13 +12,7 @@ export class NotesRenderComponent implements OnInit {
 
   constructor(private auth: AuthenticationService, private route: Router) { }
 
-  ngOnInit(): void {
-    let jwtHelper = new JwtHelper();
-    let token = localStorage.getItem('token');
-    let isExpired = jwtHelper.isTokenExpired(token);
-    let expirationDate = jwtHelper.getTokenExpirationDate(token);
-    console.log(isExpired, expirationDate);
-  }
+  ngOnInit(): void { }
 
   
 
