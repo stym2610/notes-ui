@@ -1,9 +1,11 @@
+import { AuthenticationService } from './../authentication.service';
 import { Observable } from 'rxjs';
 import { GET_NOTES } from './../store/actions';
 import { NotesService } from './../service/notes.service';
 import { Component, Output, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as NotesActions from '../store/actions';
+import { Router } from '@angular/router';
 
 
 export interface NOTE {
@@ -20,7 +22,10 @@ export interface NOTE {
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor(private service: NotesService, private store: Store<{ notesList : { notes : NOTE[] } }>) {}
+  constructor(private service: NotesService, 
+              private store: Store<{ notesList : { notes : NOTE[] } }>,
+              private auth: AuthenticationService,
+              private route: Router) {}
   
   notesDataObservable : Observable<{ notes: NOTE[] }>;
   notes;
@@ -90,6 +95,11 @@ export class AddNoteComponent implements OnInit {
   search(searchString) {
     console.log(searchString);
     this.searchString = searchString;
+  }
+
+  logout() {
+    this.auth.logout();
+    this.route.navigate(['/login']);
   }
 
 

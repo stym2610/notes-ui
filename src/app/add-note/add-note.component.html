@@ -1,21 +1,29 @@
-<div>
-    <input 
+<div class="row">
+    <div class="col-9">
+        <input 
         type="text"
         class="form-control"
         placeholder="Search"
         #searchStringTemplate
-        (keyup.enter)=search(searchStringTemplate.value)>
-</div>  
+        (input)=search(searchStringTemplate.value)>
+    </div>
+    <div class="col-3 button-container">
+        <button class="logout-button" (click)="logout()">Logout</button> 
+    </div>
+</div>     
+ 
 
 <hr>
 
-<div>
-    <input 
+<div class="row">
+    <div class="col-9">
+        <input 
         type="text" 
         placeholder="Add note here..."
         #note
         (keyup.enter)="addNote(note)"
         class="form-control" >
+    </div>
 </div>
 
 <br><br>

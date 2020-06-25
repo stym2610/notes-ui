@@ -1,0 +1,27 @@
+.logout-button {
+    display: grid;
+    min-height: 30px;
+    margin: auto;
+    background: none;
+    border: 1px solid powderblue;
+    border-radius: 3px;
+    padding: 8px 20px;
+    color: powderblue;
+    margin-top: 10px;
+    position: absolute;
+    right: 15px;
+}
+
+.button-container {
+    position: relative;
+}
+
+.logout-button:hover {
+    background-color: powderblue;
+    color: black;
+    box-shadow: 0px 0px 5px powderblue;
+}
+
+/* .top-div {
+    display: flex;
+} */

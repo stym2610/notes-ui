@@ -16,13 +16,13 @@ hr {
 }
 
 .main {
-    width: 80%;
+    width: 100%;
 }
 
 .form-control {
-    margin : 10px 10% 10px 10%;
-    width: 80%;
-    border-color: powderblue;
+    margin : 10px 10px 10px 10px;
+    width: 100%;
+    border: 1px solid powderblue;
     background-color: rgb(42, 42, 42);
     color: powderblue;
 }
@@ -30,7 +30,8 @@ hr {
 .form-control:focus {
     background-color: rgb(42, 42, 42);
     color: powderblue;
-    box-shadow: none;
+    box-shadow: 0 0 3px powderblue;
+    border: 1px solid powderblue;
 }
 
 .list-group.list-group-item {
@@ -92,6 +93,7 @@ hr {
 
 .box:hover {
     transform: scale(1.06);
+    box-shadow: 0 0 2px powderblue;
 }
 
 .toolbar {

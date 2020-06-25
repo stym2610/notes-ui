@@ -27,12 +27,18 @@
     "@angular/router": "~9.0.7",
     "@ngrx/effects": "^9.2.0",
     "@ngrx/store": "^9.2.0",
+    "angular2-jwt": "^0.2.3",
     "animate.css": "^4.1.0",
     "bootstrap": "^4.4.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.4",
     "rxjs": "~6.5.4",
+    "rxjs-compat": "^6.5.5",
     "tslib": "^1.10.0",
     "typescript": "~3.7.5",
+    "uuid": "^8.1.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

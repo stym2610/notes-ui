@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <form #form="ngForm" (ngSubmit)="onRegister(form.value)">
+            <div>
+                <h1>SIGN UP</h1>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-3">
+                    Full Name
+                </div>
+                <div class="col-9">
+                    <input ngModel name="firstname" type="text" placeholder="First Name">
+                    <input ngModel name="lastname" type="text" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    Email Address
+                </div>
+                <div class="col-9">
+                    <input ngModel name="email" type="text" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    Contact No
+                </div>
+                <div class="col-9">
+                    <input ngModel name="contact" type="text" placeholder="Contact no">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    Password
+                </div>
+                <div class="col-9">
+                    <input ngModel name="password" type="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    Confirm Password
+                </div>
+                <div class="col-9">
+                    <input ngModel name="confirmPassword" type="password" placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="row submit-button-container">
+                <input type="submit" value="Submit" class="submit-button">
+            </div>
+        </form>
+        <div class="register-message" *ngIf="registeredStatus" @fadeIn>{{ registeredMessage }}</div>
+    </div>
+    <div class="col-3"></div>
+</div>

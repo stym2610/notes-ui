@@ -1,0 +1,103 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.form-control {
+    padding: 5px;
+    margin: 0;
+    width: 70%;
+    margin-bottom: 15px;
+    transition: 500ms;
+}
+
+.form-control:focus {
+    width: 100%;
+    border-color: powderblue;
+    box-shadow: 0 0 3px powderblue;
+}
+
+/* .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.login-form {
+    width: 70%;
+    border: 1px solid powderblue;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 30px 10px;
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+input[type=submit] {
+    border: 1px solid powderblue;
+    border-radius: 3px;
+    font-size: 16px;
+    background: none;
+    padding: 5px 20px;
+    color: powderblue;
+    transition: 500ms;
+}
+
+input[type = submit]:hover {
+    background-color: powderblue;
+    color: black;
+    box-shadow: 0px 0px 5px powderblue;
+}
+
+input[type=submit]:focus {
+    outline: none;
+}
+
+.invalid-login {
+    width: 70%;
+    color: red;
+    font-weight: 500;
+    background-color: rosybrown;
+    padding: 7px;
+    display: grid;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.signup-button-container {
+    width: 100%;
+    text-align: center;
+}
+
+.signup-button {
+    width: 100px;
+    padding: 12px 15px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid powderblue;
+    border-radius: 10px;
+    margin-top: 7px;
+    transition: 500ms;
+}
+
+.signup-button:hover {
+    background-color: grey;
+    box-shadow: 0 0 3px grey;
+    border: 1px solid grey;
+    color: powderblue;
+}
