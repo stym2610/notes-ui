@@ -12,6 +12,7 @@ import * as NotesActions from '../store/actions';
 export class EditNoteComponent {
 
   editedNote;
+  userId;
   newText;
   id;
   isPinned;
@@ -22,17 +23,19 @@ export class EditNoteComponent {
     this.newText = this.note.value;
     this.id = this.note.id;
     this.isPinned = this.note.isPinned;
+    this.userId = this.note.userId;
   }
 
   closeDialog(){
     this.dialogRef.close();
     this.editedNote = {
+      userId: this.userId,
       id: this.id,
       value: this.newText,
       isPinned : this.isPinned
     };
     if(this.editedNote.value && this.newText != this.note.value)
-      this.store.dispatch(new NotesActions.UpdateNote(this.editedNote));
+      this.store.dispatch(new NotesActions.UpdateNote(this.editedNote));  
   }
 
 }
