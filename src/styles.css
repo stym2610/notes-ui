@@ -6,7 +6,7 @@
 
 
 body {
-    background-color: rgb(42, 42, 42);
+    background-color: #000000;
     color: powderblue;
 }
 
@@ -19,15 +19,32 @@ hr {
     width: 100%;
 }
 
-.form-control {
+.add-note-field {
+    margin : 10px 10px 10px 10px;
+    width: 100%;
+    border: 1px solid powderblue;
+    background: none;
+    color: powderblue;
+}
+
+.search-bar {
     margin : 10px 10px 10px 10px;
     width: 100%;
     border: 1px solid powderblue;
     background-color: rgb(42, 42, 42);
     color: powderblue;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-.form-control:focus {
+.add-note-field:focus {
+    background: none;
+    color: powderblue;
+    box-shadow: 0 0 3px powderblue;
+    border: 1px solid powderblue;
+}
+
+.search-bar:focus {
     background-color: rgb(42, 42, 42);
     color: powderblue;
     box-shadow: 0 0 3px powderblue;
