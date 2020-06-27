@@ -1,57 +1,84 @@
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <form #form="ngForm" (ngSubmit)="onRegister(form.value)">
+<div class="form-container">
+        <form [formGroup]="form">
             <div>
                 <h1>SIGN UP</h1>
             </div>
             <hr>
-            <div class="row">
-                <div class="col-3">
-                    Full Name
-                </div>
-                <div class="col-9">
-                    <input ngModel name="firstname" type="text" placeholder="First Name">
-                    <input ngModel name="lastname" type="text" placeholder="Last Name">
+            <div class="row input-field">
+                <label class="label">Name*</label>
+                <input formControlName="name" type="text" class="input">
+                <div class="error-box-container">
+                    <div class="error-box" *ngIf="name.touched && name.invalid">
+                        <div *ngIf="name.errors?.required">
+                            Name is required
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="row input-field">
+                <label class="label">Contact Number*</label>
+                <input formControlName="contact" type="text" class="input">
+                <div class="error-box-container">
+                    <div class="error-box" *ngIf="contact.touched && contact.invalid">
+                        <div *ngIf="contact.errors?.required">
+                            Contact number is required
+                        </div>
+                        <div *ngIf="contact.errors?.minlength">
+                            Contact number should be of 10 digits
+                        </div>
+                        <div *ngIf="contact.errors?.maxlength">
+                            Contact number should be of 10 digits
+                        </div>
+                    </div>
+                </div>      
+            </div>
+            <div class="row input-field">
+                <label class="label">Email*</label>
+                <input formControlName="email" type="text" class="input">
+                <div class="error-box-container">
+                    <div class="error-box" *ngIf="email.touched && email.invalid">
+                        <div *ngIf="email.errors?.required">
+                            Email is required
+                        </div>
+                        <div *ngIf="email.errors?.pattern">
+                            Please provide a valid email address
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-3">
-                    Email Address
-                </div>
-                <div class="col-9">
-                    <input ngModel name="email" type="text" placeholder="Email">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    Contact No
-                </div>
-                <div class="col-9">
-                    <input ngModel name="contact" type="text" placeholder="Contact no">
+            <div class="row input-field">
+                <label class="label">Password*</label>
+                <input formControlName="password" type="text" class="input">
+                <div class="error-box-container">
+                    <div class="error-box" *ngIf="password.touched && password.invalid">
+                        <div *ngIf="password.errors?.required">
+                            Enter password
+                        </div>
+                        <div *ngIf="password.errors?.pattern">
+                            Atleast one capital letter, one small letter and a number
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-3">
-                    Password
-                </div>
-                <div class="col-9">
-                    <input ngModel name="password" type="password" placeholder="Password">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    Confirm Password
-                </div>
-                <div class="col-9">
-                    <input ngModel name="confirmPassword" type="password" placeholder="Confirm Password">
+            <div class="row input-field">
+                <label class="label">Confirm Password*</label>
+                <input formControlName="confirmPassword" type="text" class="input">
+                <div class="error-box-container">
+                    <div class="error-box" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+                        <div *ngIf="confirmPassword.errors?.required">
+                            Please enter password to confirm
+                        </div>
+                    </div>
+                    <div *ngIf="confirmPassword.valid && form.invalid && form.errors?.passwordsShouldMatch" class="error-box">
+                        Passwords do not match.
+                    </div>
                 </div>
             </div>
             <div class="row submit-button-container">
-                <input type="submit" value="Submit" class="submit-button">
-            </div>
+                <button class="submit-button" [disabled]="form.invalid" (click)="onRegister()">Submit</button>
+            </div>   
         </form>
-        <div class="register-message" *ngIf="registeredStatus" @fadeIn>{{ registeredMessage }}</div>
-    </div>
-    <div class="col-3"></div>
+        <div class="register-message" *ngIf="registeredStatus" @fadeIn>
+            {{ registeredMessage }}
+        </div>
 </div>

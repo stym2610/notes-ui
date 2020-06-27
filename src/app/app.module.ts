@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule} from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { AddNoteComponent } from './add-note/add-note.component';
@@ -22,9 +23,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { NotesEffects } from './store';
 import { EditNoteComponent } from './edit-note/edit-note.component';
 import { SearchPipe } from './search.pipe';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { NotesRenderComponent } from './notes-render/notes-render.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 
 
@@ -34,7 +35,7 @@ import { SignupComponent } from './signup/signup.component';
     AddNoteComponent,
     DisplayNoteComponent,
     SearchPipe,
-    HomeComponent,
+    LoginComponent,
     NotesRenderComponent,
     SignupComponent
   ],
@@ -44,17 +45,19 @@ import { SignupComponent } from './signup/signup.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     StoreModule.forRoot({ notesList :  rootReducer }),
     EffectsModule.forRoot([NotesEffects]),
     RouterModule.forRoot([
       { path: '', component: NotesRenderComponent},
-      { path: 'login', component: HomeComponent},
+      { path: 'login', component: LoginComponent},
       { path: 'signup', component: SignupComponent}
     ]),
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [
     NotesService, 

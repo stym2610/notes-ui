@@ -1,14 +1,14 @@
-import { AuthenticationService } from './../authentication.service';
+import { AuthenticationService } from '../authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class HomeComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   subscriptions: Subscription[] = [];
   invalidLogin: boolean;
