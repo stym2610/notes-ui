@@ -48,7 +48,7 @@
             </div>
             <div class="row input-field">
                 <label class="label">Password*</label>
-                <input formControlName="password" type="text" class="input">
+                <input formControlName="password" type="password" class="input">
                 <div class="error-box-container">
                     <div class="error-box" *ngIf="password.touched && password.invalid">
                         <div *ngIf="password.errors?.required">
@@ -62,7 +62,10 @@
             </div>
             <div class="row input-field">
                 <label class="label">Confirm Password*</label>
-                <input formControlName="confirmPassword" type="text" class="input">
+                <div class="confirm-password-container">
+                    <input formControlName="confirmPassword" type="password" class="input">
+                    <!-- <i class="fa fa-eye"></i> -->
+                </div>  
                 <div class="error-box-container">
                     <div class="error-box" *ngIf="confirmPassword.touched && confirmPassword.invalid">
                         <div *ngIf="confirmPassword.errors?.required">
@@ -78,6 +81,9 @@
                 <button class="submit-button" [disabled]="form.invalid" (click)="onRegister()">Submit</button>
             </div>   
         </form>
+        <div class="login-text" *ngIf="!registeredStatus" routerLink="/login">
+            Already a user? <span class="route-to-login" routerLink="/login"> Login here..</span>
+        </div>
         <div class="register-message" *ngIf="registeredStatus" @fadeIn>
             {{ registeredMessage }}
         </div>

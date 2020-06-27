@@ -1,99 +1,105 @@
 .form-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-h1 {
-    text-decoration: underline;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-}
-
-.form-control {
-    background: none;
-    color: powderblue;
-    padding: 5px;
-    margin: 0;
-    width: 70%;
-    margin-bottom: 15px;
-    transition: 350ms;
-}
-
-.form-control:focus {
-    width: 100%;
-    border-color: powderblue;
-    box-shadow: 0 0 3px powderblue;
-}
-
-
 .login-form {
-    width: 70%;
-    border: 1px solid powderblue;
-    border-radius: 10px;
     margin-top: 40px;
-    padding: 30px 10px;
+    padding: 20px 10px 10px;
+    width: 35%;
     text-align: center;
+    border-radius: 5px;
+}
+
+.invalid-login {
+    display: grid;
+    margin: 3px auto 3px;
+    background-color: rgb(224, 174, 174);
+    color: red;
+    padding: 8px 5px;
+    width: 70%;
+    border-radius: 3px;
+}
+
+h1 {
+    letter-spacing: 3px;
+    text-decoration: underline;
 }
 
 .input-container {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-
-input[type=submit] {
-    border: 1px solid powderblue;
-    border-radius: 3px;
-    font-size: 16px;
+.input-field {
+    display: block;
+    border: none;
     background: none;
-    padding: 5px 20px;
     color: powderblue;
+    border-radius: 2px;
+    border: 1px solid powderblue;
+    width: 70%;
+    margin: 4px 0;
+    padding: 8px 5px;
     transition: 500ms;
 }
 
-input[type = submit]:hover {
-    background-color: powderblue;
-    color: black;
-    box-shadow: 0px 0px 5px powderblue;
-}
-
-input[type=submit]:focus {
+.input-field:focus {
     outline: none;
-}
-
-.invalid-login {
-    width: 70%;
-    color: red;
-    font-weight: 500;
-    background-color: rosybrown;
-    padding: 7px;
-    display: grid;
-    margin: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    width: 100%;
 }
 
 .signup-button-container {
-    width: 100%;
     text-align: center;
+    margin: 10px;
+}
+
+.signin-button {
+    border: 1px solid powderblue;
+    background: none;
+    color: powderblue;
+    padding: 5px 15px;
+    margin-top: 7px;
+    border-radius: 2px;
+    transition: 400ms;
+}
+
+.signin-button:hover {
+    background: powderblue;
+    color: black;
+    box-shadow: 0 0 3px powderblue;
 }
 
 .signup-button {
-    width: 100px;
-    padding: 12px 15px;
-    font-size: 18px;
-    font-weight: 500;
     border: 1px solid powderblue;
-    border-radius: 10px;
-    margin-top: 7px;
-    transition: 500ms;
+    background: rgb(19, 77, 85);
+    color: rgb(187, 188, 189);
+    padding: 8px 20px;
+    margin-top: 10px;
+    border-radius: 2px;
+    transition: 400ms;
 }
 
 .signup-button:hover {
-    background-color: grey;
-    box-shadow: 0 0 3px grey;
-    border: 1px solid grey;
-    color: powderblue;
+    background: rgb(187, 188, 189);
+    color: rgb(19, 77, 85);
+    box-shadow: 0 0 4px rgb(187, 188, 189);
+}
+
+.signup-button:focus {
+    outline: none;
+}
+
+
+@media screen and  (max-width : 800px){
+    .login-form {
+        width: 95%;
+        padding: 10px 5px 10px;
+    }
+
+    .input-field {
+        width: 85%;
+    }
 }

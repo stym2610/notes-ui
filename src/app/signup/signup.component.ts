@@ -20,7 +20,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  registeredStatus: boolean;
+  registeredStatus: boolean = false;
   registeredMessage: String;
   form: FormGroup;
 
@@ -44,17 +44,19 @@ export class SignupComponent implements OnInit {
   }
 
   onRegister() {
-    delete this.form.value["confirmPassword"];
-     this.service.setUser(this.form.value)
-      .subscribe( (response: any) => {
-        this.registeredMessage = response.message;
-        this.registeredStatus = response.status;
-        setTimeout(() => {
-          this.route.navigate(['/login']);
-        }, 2000);
-      }, error => {
-        alert("Unexpected error occured");
-      });
+    this.registeredStatus = true;
+    this.registeredMessage = 'Registered Successfully';
+    // delete this.form.value["confirmPassword"];
+    //  this.service.setUser(this.form.value)
+    //   .subscribe( (response: any) => {
+    //     this.registeredMessage = response.message;
+    //     this.registeredStatus = response.status;
+    //     setTimeout(() => {
+    //       this.route.navigate(['/login']);
+    //     }, 2000);
+    //   }, error => {
+    //     alert("Unexpected error occured");
+    //   });
   }
 
   get name() { return this.form.get('name') }
