@@ -24,7 +24,6 @@ import { NotesEffects } from './store';
 import { EditNoteComponent } from './edit-note/edit-note.component';
 import { SearchPipe } from './search.pipe';
 import { LoginComponent } from './login/login.component';
-import { NotesRenderComponent } from './notes-render/notes-render.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 
@@ -36,7 +35,6 @@ import { SignupComponent } from './signup/signup.component';
     DisplayNoteComponent,
     SearchPipe,
     LoginComponent,
-    NotesRenderComponent,
     SignupComponent
   ],
   entryComponents: [
@@ -51,7 +49,7 @@ import { SignupComponent } from './signup/signup.component';
     StoreModule.forRoot({ notesList :  rootReducer }),
     EffectsModule.forRoot([NotesEffects]),
     RouterModule.forRoot([
-      { path: '', component: NotesRenderComponent},
+      { path: '', component: AddNoteComponent},
       { path: 'login', component: LoginComponent},
       { path: 'signup', component: SignupComponent}
     ]),

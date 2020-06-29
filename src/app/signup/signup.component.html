@@ -81,7 +81,7 @@
                 <button class="submit-button" [disabled]="form.invalid" (click)="onRegister()">Submit</button>
             </div>   
         </form>
-        <div class="login-text" *ngIf="!registeredStatus" routerLink="/login">
+        <div class="login-text" *ngIf="!registeredStatus">
             Already a user? <span class="route-to-login" routerLink="/login"> Login here..</span>
         </div>
         <div class="register-message" *ngIf="registeredStatus" @fadeIn>

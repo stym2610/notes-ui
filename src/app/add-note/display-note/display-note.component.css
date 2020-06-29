@@ -1,0 +1,92 @@
+.text {
+    position: relative;
+    padding: 8px 8px 30px 16px;
+}
+
+.box {
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 200px;
+    margin: 9px 9px 2px 2px;
+    word-wrap: break-word;
+    transition: 0.15s linear;
+}
+
+.box:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 2px powderblue;
+}
+
+.toolbar {
+    opacity: 0;
+}
+
+.box:hover .toolbar {
+    opacity: 1;
+}
+
+.pinButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: grey;
+}
+
+.pinButton:hover {
+    background-color: grey;
+    color: white;
+    border-radius: 50%;
+}
+
+.isPinned {
+    color: rgb(102, 102, 241);
+}
+
+.delButton{
+    color: grey;
+}
+
+.delButton:hover {
+    background-color: grey;
+    color: white; 
+}
+
+.icon {
+    height: 30px;
+    width: 30px;
+    margin: 0px 1px;
+    padding: 6px 0px;
+    text-align: center;
+    color: grey;
+    transition: 350ms;
+    border-radius: 50%;
+}
+
+.icon:hover {
+    background-color: grey;
+    color: white;
+    border-radius: 50%;
+}
+
+.panel{
+    border: 1px solid powderblue;
+    margin: 10px 10%;
+    padding: 10px 5px 50px 10px;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 800px){
+
+    .toolbar {
+        opacity: 1;
+    }
+
+    :host{
+        width:100%;
+    }
+
+    .box {
+        width: 100%;
+    }
+}

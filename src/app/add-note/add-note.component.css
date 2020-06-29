@@ -1,19 +1,111 @@
-.logout-button {
-    display: grid;
-    min-height: 30px;
-    margin: auto;
-    background: none;
-    border: 1px solid powderblue;
-    border-radius: 3px;
-    padding: 8px 20px;
+body {
+    background-color: #000000;
     color: powderblue;
-    margin-top: 10px;
+}
+
+hr {
+    height: 0.1px;
+    background-color: grey;
+}
+
+
+.navbar {
+    padding: 20px 20px;
+    border-bottom: 1px solid grey;
+}
+
+.notes-body-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+.add-note-field-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.add-note-field {
+    display: block;
+    margin : 10px 10px 10px 10px;
+    width: 60%;
+    border: 1px solid powderblue;
+    background: none;
+    color: powderblue;
+    padding: 8px 5px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.add-note-field:focus {
+    background: none;
+    color: powderblue;
+    box-shadow: 0 0 3px powderblue;
+    outline: none;
+}
+
+.search-bar-container {
+    width: 70%;
+    position: relative;
+}
+
+.search-icon {
+    font-size: 19px;
     position: absolute;
-    right: 15px;
+    left: 10px;
+    top: 13px;
+    color: rgb(133, 113, 113);
+}
+
+.search-bar {
+    display: block;
+    width: 100%;
+    border: 1px solid powderblue;
+    border-radius: 4px;
+    background-color: rgb(42, 42, 42);
+    color: powderblue;
+    padding: 12px 10px;
+    padding-left: 35px;
+    font-size: 15px;
+}
+
+.search-bar::placeholder {
+    letter-spacing: 2px;
+    font-size: 15px;
+    font-weight: 100;
+    color: rgb(200, 128, 128);
+}
+
+.search-bar:focus {
+    background-color: rgb(114, 98, 98);
+    color: black;
+    box-shadow: 0 0 3px powderblue;
+    outline: none;
+}
+
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
 }
 
 .button-container {
     position: relative;
+}
+
+.logout-button {
+    display: block;
+    float: right;
+    min-height: 30px;
+    background: none;
+    border: 1px solid powderblue;
+    border-radius: 3px;
+    padding: 8px 20px;
+    color: powderblue;   
 }
 
 .logout-button:hover {
@@ -22,6 +114,39 @@
     box-shadow: 0px 0px 5px powderblue;
 }
 
-/* .top-div {
-    display: flex;
-} */
+
+@media screen and (max-width: 800px) {
+    
+    .search-bar {
+        padding: 6px 3px;
+        padding-left: 27px;
+        font-weight: 400;
+    }
+
+    .search-icon {
+        font-size: 13px;
+        position: absolute;
+        left: 8px;
+        top: 10px
+    }
+
+    .notes-body-section {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .add-note-field {
+        margin: 2px;
+        width: 100%;
+    }
+
+
+    .flex-container {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    .logout-button {
+        padding: 4px 10px;
+    }
+}

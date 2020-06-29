@@ -1,57 +1,56 @@
-<div class="row">
-    <div class="col-9">
-        <input 
-        type="text"
-        class="form-control search-bar"
-        placeholder="Search"
-        #searchStringTemplate
-        (input)=search(searchStringTemplate.value)>
-    </div>
-    <div class="col-3 button-container">
+<div>
+    <div class="navbar">
+        <div class="search-bar-container">
+            <input 
+            type="text"
+            class="search-bar"
+            placeholder="Search"
+            #searchStringTemplate
+            (input)=search(searchStringTemplate.value)>
+            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+        </div>
         <button class="logout-button" (click)="logout()">Logout</button> 
-    </div>
-</div>     
+    </div>     
  
-
-<hr>
-
-<div class="row">
-    <div class="col-9">
-        <input 
-        type="text" 
-        placeholder="Add note here..."
-        #note
-        (keyup.enter)="addNote(note)"
-        class="form-control add-note-field">
+    <div class="notes-body-section">
+        <div class="add-note-field-container">
+            <input
+            contenteditable="true"
+            type="text" 
+            placeholder="Add note here..."
+            #note
+            (keyup.enter)="addNote(note)"
+            class="add-note-field">
+        </div>
+    
+        <div class="flex-container">
+            <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
+                <display-note 
+                    *ngIf="note.isPinned"    
+                    [displayNote]="note"
+                    [isPinned]="note.isPinned"
+                    (pinnote)="pinNote(note.id)"
+                    (deletenote)="deleteNote(note.id)">      
+                </display-note>
+            </ng-container>   
+        </div>
+    
+        <br><br>
+    
+        <div class="flex-container">
+            <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
+                <display-note
+                *ngIf="!note.isPinned"    
+                [displayNote]="note"
+                [isPinned]="note.isPinned"
+                (pinnote)="pinNote(note.id)"
+                (deletenote)="deleteNote(note.id)">      
+                </display-note>
+            </ng-container>   
+        </div>
     </div>
+    
 </div>
 
-<br><br>
-
-<div class="flex-container">
-    <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
-        <display-note 
-            *ngIf="note.isPinned"    
-            [displayNote]="note"
-            [isPinned]="note.isPinned"
-            (pinnote)="pinNote(note.id)"
-            (deletenote)="deleteNote(note.id)">      
-        </display-note>
-    </ng-container>   
-</div>
-
-<br><br>
-
-<div class="flex-container">
-    <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
-        <display-note
-        *ngIf="!note.isPinned"    
-        [displayNote]="note"
-        [isPinned]="note.isPinned"
-        (pinnote)="pinNote(note.id)"
-        (deletenote)="deleteNote(note.id)">      
-        </display-note>
-    </ng-container>   
-</div>
         
 
