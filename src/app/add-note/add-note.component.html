@@ -1,21 +1,33 @@
-<div>
+<div  *ngIf="(notesDataObservable | async).notes">
     <div class="navbar">
-        <div class="search-bar-container">
-            <input 
-            type="text"
-            class="search-bar"
-            placeholder="Search"
-            #searchStringTemplate
-            (input)=search(searchStringTemplate.value)>
-            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+        <div class="note-icon-container">
+            <i class="fa fa-sticky-note-o note-icon"></i>
+            <span>NOTES</span>
         </div>
-        <button class="logout-button" (click)="logout()">Logout</button> 
+        <div class="search-bar-container">
+            <div class="arrow-icon-container" [style.display]="showSearchBox ? 'block' : 'none'">
+                <mat-icon (click)="showSearchBox = false" class="arrow-icon">keyboard_backspace</mat-icon>
+                <input 
+                    type="text"
+                    class="search-bar"
+                    placeholder="Search Notes"
+                    #searchStringTemplate
+                    (input)=search(searchStringTemplate.value)>
+            </div>
+            <i [style.display]="!showSearchBox ? 'block' : 'none'" (click)="showSearchBox = true" class="fa fa-search search-icon" aria-hidden="true"></i>
+        </div>
+        <div class="profile-icon-container">
+            <i class="fa fa-user-circle-o user-icon"></i>
+            <span class="username" (click)="openMenuOptionsPopup($event)">{{ firstname | titlecase }}</span>
+            <gs-popover [closeOnClick]="false" #menuOptionsPopup>
+                <user-profile [name]="userInfo.name" [email]="userInfo.email"></user-profile> 
+            </gs-popover>
+        </div>
     </div>     
  
     <div class="notes-body-section">
         <div class="add-note-field-container">
             <input
-            contenteditable="true"
             type="text" 
             placeholder="Add note here..."
             #note

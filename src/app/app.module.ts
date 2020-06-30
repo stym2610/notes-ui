@@ -1,3 +1,4 @@
+import { PopoverModule } from './popover.module';
 import { TokenInterceptor } from './token.interceptor';
 import { UserService } from './user.service';
 import { AuthGaurd } from './auth-gaurd.service';
@@ -13,6 +14,8 @@ import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule} from '@angular/material/input';
+import { MatIconModule} from '@angular/material/icon';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AppComponent } from './app.component';
 import { AddNoteComponent } from './add-note/add-note.component';
@@ -26,6 +29,7 @@ import { SearchPipe } from './search.pipe';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -35,7 +39,8 @@ import { SignupComponent } from './signup/signup.component';
     DisplayNoteComponent,
     SearchPipe,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UserProfileComponent
   ],
   entryComponents: [
     EditNoteComponent
@@ -49,13 +54,16 @@ import { SignupComponent } from './signup/signup.component';
     StoreModule.forRoot({ notesList :  rootReducer }),
     EffectsModule.forRoot([NotesEffects]),
     RouterModule.forRoot([
-      { path: '', component: AddNoteComponent},
-      { path: 'login', component: LoginComponent},
-      { path: 'signup', component: SignupComponent}
+      { path: '', component: AddNoteComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent }
     ]),
     MatDialogModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    OverlayModule,
+    PopoverModule,
+    MatIconModule
   ],
   providers: [
     NotesService, 

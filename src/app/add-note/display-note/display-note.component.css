@@ -78,10 +78,6 @@
 
 @media screen and (max-width: 800px){
 
-    .toolbar {
-        opacity: 1;
-    }
-
     :host{
         width:100%;
     }
@@ -89,4 +85,16 @@
     .box {
         width: 100%;
     }
+
+    .box:hover {
+        transform: none;
+    }
+
+    .toolbar {
+        opacity: 1;
+    }
+
+
+
+
 }

@@ -1,11 +1,13 @@
+import { UserService } from './../user.service';
 import { AuthenticationService } from './../authentication.service';
 import { Observable } from 'rxjs';
 import { GET_NOTES } from './../store/actions';
 import { NotesService } from './../service/notes.service';
-import { Component, Output, OnInit } from '@angular/core';
+import { Component, Output, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as NotesActions from '../store/actions';
 import { Router } from '@angular/router';
+import { PopoverComponent } from '../popover.module';
 
 
 export interface NOTE {
@@ -22,17 +24,27 @@ export interface NOTE {
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor(private service: NotesService, 
-              private store: Store<{ notesList : { notes : NOTE[] } }>,
-              private auth: AuthenticationService,
-              private route: Router) {}
+  @ViewChild("menuOptionsPopup", { static: false }) protected menuOptionsPopup: PopoverComponent;
   
   notesDataObservable : Observable<{ notes: NOTE[] }>;
   notes;
   searchString;
+  userInfo;
+  showSearchBox = false;
+
+  constructor(private service: NotesService, 
+              private store: Store<{ notesList : { notes : NOTE[] } }>,
+              private auth: AuthenticationService,
+              private route: Router,
+              private userService: UserService) {}
+  
 
   ngOnInit(){
     this.getNotes();
+    this.userService.getUser()
+      .subscribe((userInfo: any) => {
+        this.userInfo = userInfo;
+      })
   }
 
   getNotes(){
@@ -93,14 +105,17 @@ export class AddNoteComponent implements OnInit {
   }
 
   search(searchString) {
-    console.log(searchString);
     this.searchString = searchString;
   }
 
-  logout() {
-    this.auth.logout();
-    this.route.navigate(['/login']);
+  get firstname() {
+    return this.userInfo.name.split(' ')[0];
   }
 
 
+  openMenuOptionsPopup(event: any) {
+    this.menuOptionsPopup.open(new ElementRef(event.target));
+  }
+
+  
 }

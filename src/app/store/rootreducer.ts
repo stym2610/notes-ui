@@ -6,7 +6,7 @@ export interface NOTES {
 }
 
 export const INITIAL_STATE = {
-    notes: [],
+    notes: null,
     searchString: ''
 }
 
@@ -36,7 +36,12 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
             return {
                 ...state,
                 notes : action.payload
-            }     
+            }
+        case NotesActions.LOGOUT:
+            return {
+                ...state,
+                notes: null
+            }       
           
         // case NotesActions.UPDATE_NOTE: 
         //     return {

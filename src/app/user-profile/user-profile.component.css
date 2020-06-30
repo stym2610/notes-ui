@@ -1,0 +1,30 @@
+:host() {
+    width: 800px;
+}
+
+.profile-container {
+    background-color: #2D2E30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hello, .email, .logout-button-container{
+    min-width: 100px;
+    text-align: center;
+    padding: 5px 0;
+    color: whitesmoke;
+}
+
+.logout-button {
+    background: none;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    color: whitesmoke;   
+}
+
+.logout-button:hover {
+    background-color: rgba(255,255,255,0.04);
+}
+

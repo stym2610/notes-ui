@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
 body {
     background-color: #000000;
     color: powderblue;
@@ -8,10 +10,93 @@ hr {
     background-color: grey;
 }
 
-
 .navbar {
-    padding: 20px 20px;
+    padding: 8px 8px;
     border-bottom: 1px solid grey;
+}
+
+.note-icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.note-icon-container .note-icon {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.note-icon-container span {
+    font-family: cursive;
+    font-size: 20px;
+    margin-left: 8px;
+    color: whitesmoke;
+}
+
+.arrow-icon-container {
+    display: block;
+}
+
+.arrow-icon {
+    color: whitesmoke;
+}
+
+.search-bar-container {
+    width: 70%;
+    position: relative;
+}
+
+.search-icon {
+    font-size: 19px;
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: whitesmoke;
+}
+
+.search-bar {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(42, 42, 42);
+    color: whitesmoke;
+    padding: 12px 10px;
+    padding-left: 35px;
+    font-size: 15px;
+}
+
+.search-bar::placeholder {
+    letter-spacing: 2px;
+    font-size: 15px;
+    font-weight: 100;
+    color: whitesmoke;
+}
+
+.search-bar:focus {
+    box-shadow: 0 0 3px rgb(42, 42, 42);
+    outline: none;
+}
+
+.profile-icon-container {
+    max-width: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.profile-icon-container .user-icon {
+    font-size: 25px;
+    margin-right: 5px;
+    color: #939596;
+}
+
+.profile-icon-container .username {
+    font-size: 15px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    text-align: left;
 }
 
 .notes-body-section {
@@ -20,6 +105,13 @@ hr {
     flex-direction: column;
     align-items: center;
     padding: 0 20px;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin-bottom: 20px;
 }
 .add-note-field-container {
     display: flex;
@@ -47,87 +139,78 @@ hr {
     outline: none;
 }
 
-.search-bar-container {
-    width: 70%;
-    position: relative;
-}
-
-.search-icon {
-    font-size: 19px;
-    position: absolute;
-    left: 10px;
-    top: 13px;
-    color: rgb(133, 113, 113);
-}
-
-.search-bar {
-    display: block;
-    width: 100%;
-    border: 1px solid powderblue;
-    border-radius: 4px;
-    background-color: rgb(42, 42, 42);
-    color: powderblue;
-    padding: 12px 10px;
-    padding-left: 35px;
-    font-size: 15px;
-}
-
-.search-bar::placeholder {
-    letter-spacing: 2px;
-    font-size: 15px;
-    font-weight: 100;
-    color: rgb(200, 128, 128);
-}
-
-.search-bar:focus {
-    background-color: rgb(114, 98, 98);
-    color: black;
-    box-shadow: 0 0 3px powderblue;
-    outline: none;
-}
-
-
-.flex-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 75%;
-}
 
 .button-container {
     position: relative;
 }
 
-.logout-button {
-    display: block;
-    float: right;
-    min-height: 30px;
-    background: none;
-    border: 1px solid powderblue;
-    border-radius: 3px;
-    padding: 8px 20px;
-    color: powderblue;   
-}
-
-.logout-button:hover {
-    background-color: powderblue;
-    color: black;
-    box-shadow: 0px 0px 5px powderblue;
-}
-
-
-@media screen and (max-width: 800px) {
-    
-    .search-bar {
-        padding: 6px 3px;
-        padding-left: 27px;
-        font-weight: 400;
+@media screen and (min-width: 801px){
+    .arrow-icon-container {
+        display: block !important;
     }
 
     .search-icon {
-        font-size: 13px;
+        display: block !important;
+    }
+
+    .arrow-icon {
+        display: none !important;
+    }
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    .note-icon-container {
+        flex-grow: 1;
+    }
+    
+    .note-icon-container .note-icon {
+        font-size: 21px;
+    }
+    
+    .note-icon-container span {
+        font-size: 18px;
+        margin-left: 6px;
+    }
+
+    .arrow-icon-container {
+        display: none;
+        position: relative;
+    }
+
+    .arrow-icon {
+        position: absolute;
+        left: -231px;
+        top: 5px;
+        z-index: 1;
+        font-size: 23px
+    }
+
+    .search-bar-container {
+        width: 30px;
+        height: 32px;
+        position: relative;
+        margin-right: 5px;
+    }
+
+    .search-bar {
+        position: absolute;
+        width: 265px;
+        padding: 5px;
+        padding-left: 30px;
+        font-size: 14px;
+        left: -234px;
+        top: -4px;
+        height: 41px;
+    }
+
+    .search-icon {
+        font-size: 20px;
         position: absolute;
         left: 8px;
-        top: 10px
+        top: 5px
     }
 
     .notes-body-section {
