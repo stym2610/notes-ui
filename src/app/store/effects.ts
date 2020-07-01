@@ -51,6 +51,20 @@ export class NotesEffects {
                   )
             })
          );
+
+   @Effect() changeNoteColor$ = this.actions$
+         .pipe(
+            ofType(NotesActions.CHANGE_NOTE_COLOR),
+            map((action: NotesActions.NotesActionType) => {
+               return action.payload;
+            }),
+            switchMap(payload => {
+               return this.service.updateNote(payload)
+                  .pipe(
+                     map((notes: NOTE[]) => new NotesActions.ChangeNoteColorSuccess(notes))
+                  )
+            })
+         );
          
 
    @Effect() deleteNote$ = this.actions$

@@ -1,0 +1,84 @@
+.colors-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 142px;
+    background-color: #212223;
+    padding: 2px;
+    box-shadow: 0 0 2px #2D2E30;
+    
+}
+
+.color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 2px;
+}
+
+.color:hover {
+    border: 1px solid whitesmoke;
+}
+
+.default {
+    background-color:#202124;
+    border: 1px solid grey;
+}
+
+.dark-blue {
+    background-color:#1e3a5f;
+}
+
+.brown {
+    background-color:#442f19;
+}
+
+.purple {
+    background-color: #42275e;
+}
+
+.green {
+    background-color: #345920;
+}
+
+.pink {
+    background-color: #5b2245;
+}
+
+.teal {
+    background-color: #16504b;
+}
+
+.red {
+    background-color: #5c2b29;
+}
+
+.blue {
+    background-color: #2d555e;
+}
+
+.yellow {
+    background-color: #635d19;
+}
+
+.gray {
+    background-color: #3c3f43;
+}
+
+.orange {
+    background-color: #614a19;
+}
+
+.material-icons {
+    color: whitesmoke;
+    font-size: 18px;
+}
+
+/* ::ng-deep .mat-tooltip {
+   
+} */
+
+

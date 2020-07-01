@@ -11,6 +11,8 @@ export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const UPDATE_NOTE_SUCCESS = 'UPDATE_NOTE_SUCCESS';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
+export const CHANGE_NOTE_COLOR = 'CHANGE_NOTE_COLOR';
+export const CHANGE_NOTE_COLOR_SUCCESS = 'CHANGE_NOTE_COLOR_SUCCESS';
 export const LOGOUT = 'LOGOUT';
 
 export class GetNotes implements Action {
@@ -50,6 +52,16 @@ export class DeleteNote implements Action {
 
 export class DeleteNoteSuccess implements Action {
     type = DELETE_NOTE_SUCCESS;
+    constructor(public payload? : any){}
+}
+
+export class ChangeNoteColor implements Action {
+    type = CHANGE_NOTE_COLOR;
+    constructor(public payload? : any){}
+}
+
+export class ChangeNoteColorSuccess implements Action {
+    type = CHANGE_NOTE_COLOR_SUCCESS;
     constructor(public payload? : any){}
 }
 

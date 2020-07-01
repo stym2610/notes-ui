@@ -47,12 +47,15 @@
 
 
 .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     height: 30px;
     width: 30px;
     margin: 0px 1px;
     padding: 6px 0px;
-    text-align: center;
-    color: grey;
+    color: whitesmoke;
     transition: 350ms;
     border-radius: 50%;
 }
@@ -61,6 +64,10 @@
     background-color: grey;
     color: white;
     border-radius: 50%;
+}
+
+.material-icons {
+    font-size: 18px;
 }
 
 .panel{

@@ -1,4 +1,5 @@
-import { PopoverModule } from './popover.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { PopoverModule } from '../../other_modules/popover.module';
 import { TokenInterceptor } from './token.interceptor';
 import { UserService } from './user.service';
 import { AuthGaurd } from './auth-gaurd.service';
@@ -30,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangeColorComponent } from './change-color/change-color.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SearchPipe,
     LoginComponent,
     SignupComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ChangeColorComponent
   ],
   entryComponents: [
     EditNoteComponent
@@ -63,7 +66,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatInputModule,
     OverlayModule,
     PopoverModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [
     NotesService, 

@@ -1,7 +1,8 @@
 import { EditNoteComponent } from './../../edit-note/edit-note.component';
 import { fade, bounce } from './../../animations';
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { PopoverComponent } from 'other_modules/popover.module';
 
 @Component({
   selector: 'display-note',
@@ -14,10 +15,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DisplayNoteComponent implements OnInit{
 
+  @ViewChild("menuOptionsPopup", { static: false }) protected menuOptionsPopup: PopoverComponent;
+
   @Input('displayNote') displayNote : any;
+  @Input('isPinned') isPinned  : boolean;
   @Output('deletenote') deleteNoteEvent = new EventEmitter();
   @Output('pinnote') pinNoteEvent = new EventEmitter();
-  @Input('isPinned') isPinned  : boolean;
+  @Output() changedColorEvent = new EventEmitter();
 
   constructor(private dialog: MatDialog) {}
 
@@ -37,6 +41,14 @@ export class DisplayNoteComponent implements OnInit{
     this.pinNoteEvent.emit();
   }
 
+  openMenuOptionsPopup(event: any) {
+    this.menuOptionsPopup.open(new ElementRef(event.target));
+  }
+
+  changeColor(color){
+    console.log("event emited from change color component", color);
+    this.changedColorEvent.emit(color);
+  }
 
 
 }

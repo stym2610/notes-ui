@@ -1,19 +1,18 @@
 import { UserService } from './../user.service';
-import { AuthenticationService } from './../authentication.service';
 import { Observable } from 'rxjs';
 import { GET_NOTES } from './../store/actions';
 import { NotesService } from './../service/notes.service';
 import { Component, Output, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as NotesActions from '../store/actions';
-import { Router } from '@angular/router';
-import { PopoverComponent } from '../popover.module';
+import { PopoverComponent } from '../../../other_modules/popover.module';
 
 
 export interface NOTE {
   id : number,
   value : any,
   isPinned : boolean,
+  userId: string,
   color: string
 }
 
@@ -35,8 +34,6 @@ export class AddNoteComponent implements OnInit {
 
   constructor(private service: NotesService, 
               private store: Store<{ notesList : { notes : NOTE[] } }>,
-              private auth: AuthenticationService,
-              private route: Router,
               private userService: UserService) {}
   
 
@@ -103,6 +100,18 @@ export class AddNoteComponent implements OnInit {
           });
       }
     }
+  }
+
+  changeColor(note, color){
+    console.log("event emited from display note component", note, color);
+    let editedNote = {
+      userId: note.userId,
+      id: note.id,
+      value: note.value,
+      isPinned: note.isPinned,
+      color: color
+    }
+    this.store.dispatch(new NotesActions.ChangeNoteColor(editedNote));
   }
 
   search(searchString) {

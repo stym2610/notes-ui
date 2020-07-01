@@ -21,11 +21,11 @@ export class EditNoteComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public note: any, 
               private dialogRef: MatDialogRef<any>,
               private store: Store<{ notesList : { notes : NOTE[] } }>) {
-    this.newText = this.note.value;
-    this.id = this.note.id;
-    this.isPinned = this.note.isPinned;
-    this.userId = this.note.userId;
-    this.color = this.note.color;
+    this.newText = note.value;
+    this.id = note.id;
+    this.isPinned = note.isPinned;
+    this.userId = note.userId;
+    this.color = note.color;
   }
 
   closeDialog(){

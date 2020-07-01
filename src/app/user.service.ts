@@ -7,8 +7,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 })
 export class UserService {
 
-    private url = "https://notes--app-api.herokuapp.com";
-    // private url = "http://localhost:3000";
+    // private url = "https://notes--app-api.herokuapp.com";
+    private url = "http://localhost:3000";
 
     constructor(private http: HttpClient){}
 

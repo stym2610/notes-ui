@@ -23,11 +23,11 @@
                         <div *ngIf="contact.errors?.required">
                             Contact number is required
                         </div>
-                        <div *ngIf="contact.errors?.minlength">
+                        <div *ngIf="contact.errors?.minlength || contact.errors?.maxlength">
                             Contact number should be of 10 digits
                         </div>
-                        <div *ngIf="contact.errors?.maxlength">
-                            Contact number should be of 10 digits
+                        <div *ngIf="!contact.errors?.maxlength && !contact.errors?.minlength && contact.errors?.pattern">
+                            contact number should be in digits you fool
                         </div>
                     </div>
                 </div>      

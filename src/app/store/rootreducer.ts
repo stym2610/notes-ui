@@ -37,6 +37,13 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
                 ...state,
                 notes : action.payload
             }
+
+        case NotesActions.CHANGE_NOTE_COLOR_SUCCESS:
+            return {
+                ...state,
+                notes : action.payload
+            }
+
         case NotesActions.LOGOUT:
             return {
                 ...state,

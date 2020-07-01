@@ -22,11 +22,40 @@
     </div>
      
     <div class="d-flex toolbar">
-        <div class="icon fa fa-bell-o"></div>
-        <div class="icon fa fa-user-plus "></div>
-        <div class="icon fa fa-paint-brush "></div>
-        <div class="icon fa fa-picture-o"></div>
-        <div class="icon fa fa fa-archive"></div>
-        <div class=" fa fa-trash icon" (click)="onClickDelete()"></div>
-    </div>   
+        <div class="icon material-icons"  
+             matTooltip="not working"
+             [matTooltipPosition]="'above'">
+             notifications_none
+        </div>
+        <div class="icon material-icons"  
+             matTooltip="not working"
+             [matTooltipPosition]="'above'">
+             person_add_alt_1
+        </div>
+        <div class="icon material-icons"  
+             matTooltip="change color"
+             [matTooltipPosition]="'above'"
+             (click)="openMenuOptionsPopup($event)">
+             palette
+        </div>
+        <div class="icon material-icons"  
+             matTooltip="not working"
+             [matTooltipPosition]="'above'">
+             insert_photo
+        </div>
+        <div class="icon material-icons"  
+             matTooltip="not working"
+             [matTooltipPosition]="'above'">
+             archive
+        </div>
+        <div class="icon material-icons"
+             matTooltip="delete"
+             [matTooltipPosition]="'above'"
+             (click)="onClickDelete()">
+             delete
+        </div>
+    </div> 
+    <gs-popover [closeOnClick]="true"  #menuOptionsPopup>
+        <change-color [selectedColor]="displayNote.color" (changedColorEvent)="changeColor($event)"></change-color> 
+    </gs-popover>
 </div>
