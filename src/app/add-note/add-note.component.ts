@@ -13,7 +13,8 @@ import { PopoverComponent } from '../popover.module';
 export interface NOTE {
   id : number,
   value : any,
-  isPinned : boolean
+  isPinned : boolean,
+  color: string
 }
 
 @Component({
@@ -111,7 +112,6 @@ export class AddNoteComponent implements OnInit {
   get firstname() {
     return this.userInfo.name.split(' ')[0];
   }
-
 
   openMenuOptionsPopup(event: any) {
     this.menuOptionsPopup.open(new ElementRef(event.target));

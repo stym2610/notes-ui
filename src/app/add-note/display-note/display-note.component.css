@@ -4,7 +4,8 @@
 }
 
 .box {
-    border: 1px solid grey;
+    background-color: #202124;
+    border: 1px solid #e8eaed;
     border-radius: 10px;
     width: 200px;
     margin: 9px 9px 2px 2px;
@@ -15,14 +16,6 @@
 .box:hover {
     transform: scale(1.06);
     box-shadow: 0 0 2px powderblue;
-}
-
-.toolbar {
-    opacity: 0;
-}
-
-.box:hover .toolbar {
-    opacity: 1;
 }
 
 .pinButton {
@@ -42,14 +35,16 @@
     color: rgb(102, 102, 241);
 }
 
-.delButton{
-    color: grey;
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
 }
 
-.delButton:hover {
-    background-color: grey;
-    color: white; 
+.box:hover .toolbar {
+    opacity: 1;
 }
+
 
 .icon {
     height: 30px;

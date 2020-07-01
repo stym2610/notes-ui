@@ -16,6 +16,7 @@ export class EditNoteComponent {
   newText;
   id;
   isPinned;
+  color;
 
   constructor(@Inject(MAT_DIALOG_DATA) public note: any, 
               private dialogRef: MatDialogRef<any>,
@@ -24,6 +25,7 @@ export class EditNoteComponent {
     this.id = this.note.id;
     this.isPinned = this.note.isPinned;
     this.userId = this.note.userId;
+    this.color = this.note.color;
   }
 
   closeDialog(){
@@ -32,7 +34,8 @@ export class EditNoteComponent {
       userId: this.userId,
       id: this.id,
       value: this.newText,
-      isPinned : this.isPinned
+      isPinned : this.isPinned,
+      color: this.color
     };
     if(this.editedNote.value && this.newText != this.note.value)
       this.store.dispatch(new NotesActions.UpdateNote(this.editedNote));  

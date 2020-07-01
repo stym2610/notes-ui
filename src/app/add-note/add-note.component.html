@@ -1,10 +1,10 @@
 <div  *ngIf="(notesDataObservable | async).notes">
     <div class="navbar">
-        <div class="note-icon-container">
+        <div [style.display]="!showSearchBox ? 'block' : 'none'" class="note-icon-container">
             <i class="fa fa-sticky-note-o note-icon"></i>
             <span>NOTES</span>
         </div>
-        <div class="search-bar-container">
+        <div [style.flex-grow]="showSearchBox ? 1 : 0" class="search-bar-container">
             <div class="arrow-icon-container" [style.display]="showSearchBox ? 'block' : 'none'">
                 <mat-icon (click)="showSearchBox = false" class="arrow-icon">keyboard_backspace</mat-icon>
                 <input 
@@ -52,11 +52,11 @@
         <div class="flex-container">
             <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
                 <display-note
-                *ngIf="!note.isPinned"    
-                [displayNote]="note"
-                [isPinned]="note.isPinned"
-                (pinnote)="pinNote(note.id)"
-                (deletenote)="deleteNote(note.id)">      
+                    *ngIf="!note.isPinned"    
+                    [displayNote]="note"
+                    [isPinned]="note.isPinned"
+                    (pinnote)="pinNote(note.id)"
+                    (deletenote)="deleteNote(note.id)">      
                 </display-note>
             </ng-container>   
         </div>
