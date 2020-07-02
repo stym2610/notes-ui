@@ -48,19 +48,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
             return {
                 ...state,
                 notes: null
-            }       
-          
-        // case NotesActions.UPDATE_NOTE: 
-        //     return {
-        //         ...state,
-        //         notes : [...state.notes, action.payload]
-        //     } 
-            
-        // case NotesActions.DELETE_NOTE: 
-        //     return {
-        //         ...state,
-        //         notes : [...state.notes, action.payload]
-        //     }    
+            }     
     }
     return state;
 }

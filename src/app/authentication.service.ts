@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as NotesActions from './store/actions'
 import { environment } from 'src/environments/environment';
+import { Store } from '@ngrx/store';
+import { NOTE } from './add-note';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ import { environment } from 'src/environments/environment';
 
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store<{ notesList : { notes : NOTE[] } }>) {}
 
   // private url = environment.API_URL;
 
@@ -37,8 +39,8 @@ export class AuthenticationService {
 
 
   logout() {
+    this.store.dispatch(new NotesActions.Logout());
     localStorage.removeItem('token');
-    new NotesActions.Logout();
   }
 
   // isLoggedIn() {

@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 	
-	// private url = environment.API_URL;
+  // private url = environment.API_URL;
 
-    private url = "https://notes--app/-api.herokuapp.com";
+    private url = "https://notes--app-api.herokuapp.com";
     // private url = "http://localhost:3000";
 
     constructor(private http: HttpClient){}
