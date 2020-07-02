@@ -6,19 +6,19 @@
         </div>
         <div [style.flex-grow]="showSearchBox ? 1 : 0" class="search-bar-container">
             <div class="arrow-icon-container" [style.display]="showSearchBox ? 'block' : 'none'">
-                <mat-icon (click)="showSearchBox = false" class="arrow-icon">keyboard_backspace</mat-icon>
-                <input 
+                <mat-icon (click)="deleteSearchString()" class="arrow-icon">keyboard_backspace</mat-icon>
+                <input
                     type="text"
                     class="search-bar"
                     placeholder="Search Notes"
-                    #searchStringTemplate
-                    (input)=search(searchStringTemplate.value)>
+                    [(ngModel)]="searchString"
+                    #searchBarReference>
             </div>
-            <i [style.display]="!showSearchBox ? 'block' : 'none'" (click)="showSearchBox = true" class="fa fa-search search-icon" aria-hidden="true"></i>
+            <i [style.display]="!showSearchBox ? 'block' : 'none'" (click)="showSearchBar()" class="fa fa-search search-icon" aria-hidden="true"></i>
         </div>
-        <div class="profile-icon-container">
+        <div class="profile-icon-container" (click)="openMenuOptionsPopup($event)">
             <i class="fa fa-user-circle-o user-icon"></i>
-            <span class="username" (click)="openMenuOptionsPopup($event)">{{ firstname | titlecase }}</span>
+            <span class="username">{{ firstname | titlecase }}</span>
             <gs-popover [closeOnClick]="false" #menuOptionsPopup>
                 <user-profile [name]="userInfo.name" [email]="userInfo.email"></user-profile> 
             </gs-popover>
@@ -50,7 +50,7 @@
         <br><br>
     
         <div class="flex-container">
-            <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString)">
+            <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString); trackBy: trackNotes">
                 <display-note
                     *ngIf="!note.isPinned"    
                     [displayNote]="note"

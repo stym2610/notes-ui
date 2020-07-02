@@ -58,6 +58,7 @@
     color: whitesmoke;
     transition: 350ms;
     border-radius: 50%;
+    font-size: 19px;
 }
 
 .icon:hover {
@@ -66,9 +67,6 @@
     border-radius: 50%;
 }
 
-.material-icons {
-    font-size: 18px;
-}
 
 .panel{
     border: 1px solid powderblue;

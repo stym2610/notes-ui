@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as NotesActions from './store/actions'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,10 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {}
 
-  private url = "https://notes--app-api.herokuapp.com";
-  // private url = "http://localhost:3000";
+  // private url = environment.API_URL;
+
+  // private url = "https://notes--app-api.herokuapp.com";
+  private url = "http://localhost:3000";
 
   login(credentials){
     return this.http.post(this.url + '/authenticate', credentials)

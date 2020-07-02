@@ -25,7 +25,7 @@ export interface NOTE {
 export class AddNoteComponent implements OnInit {
 
   @ViewChild("menuOptionsPopup", { static: false }) protected menuOptionsPopup: PopoverComponent;
-  
+  @ViewChild("searchBarReference", { static: false }) protected searchBarReference: ElementRef;
   notesDataObservable : Observable<{ notes: NOTE[] }>;
   notes;
   searchString;
@@ -45,17 +45,13 @@ export class AddNoteComponent implements OnInit {
       })
   }
 
+  trackNotes(index: number, note: NOTE){
+    return note.id;
+  }
+
   getNotes(){
     this.store.dispatch({ type: GET_NOTES });
     this.notesDataObservable = this.store.select("notesList");
-    
-    // this.service.getNotes()
-    //   .subscribe((data: NOTE[]) => {
-    //     this.notes = data;
-    //   }, error => {
-    //     alert("An unexpected error occured..");
-    //     console.error(error);
-    // });
   }
 
   addNote(note: HTMLInputElement){
@@ -65,13 +61,6 @@ export class AddNoteComponent implements OnInit {
       };
       this.store.dispatch(new NotesActions.AddNote(body));
       this.notesDataObservable = this.store.select("notesList");
-      // this.service.postNote(body)
-      //   .subscribe(data => {
-      //     this.getNotes();
-      //   }, error => {
-      //     alert("An unexpexted error occured");
-      //     console.log(error);
-      //   });
       note.value = "";
     } 
   }
@@ -79,12 +68,6 @@ export class AddNoteComponent implements OnInit {
   deleteNote(note_id){
     this.store.dispatch(new NotesActions.DeleteNote(note_id));
     this.notesDataObservable = this.store.select("notesList");
-    // this.service.deleteNote(note_id)
-    //   .subscribe(data => {
-    //     this.getNotes();
-    //   }, error => {
-    //       alert("An unexpected error occured..");
-    //   });
   }
 
   pinNote(note_id){
@@ -114,8 +97,16 @@ export class AddNoteComponent implements OnInit {
     this.store.dispatch(new NotesActions.ChangeNoteColor(editedNote));
   }
 
-  search(searchString) {
-    this.searchString = searchString;
+  showSearchBar(){
+    this.showSearchBox = true;
+    setTimeout(() => {
+      this.searchBarReference.nativeElement.focus();
+     }, 0);
+  }
+
+  deleteSearchString() {
+    this.showSearchBox = false;
+    this.searchString = '';
   }
 
   get firstname() {
@@ -123,7 +114,7 @@ export class AddNoteComponent implements OnInit {
   }
 
   openMenuOptionsPopup(event: any) {
-    this.menuOptionsPopup.open(new ElementRef(event.target));
+    this.menuOptionsPopup.open(new ElementRef(event.currentTarget));
   }
 
   

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -8,8 +9,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class NotesService {
 
-  private url = "https://notes--app-api.herokuapp.com/notes";
-  // private url = "http://localhost:3000/notes";
+  // private url = environment.API_URL;
+
+  // private url = "https://notes--app-api.herokuapp.com/notes";
+  private url = "http://localhost:3000/notes";
 
   constructor(private http: HttpClient) { }
 

@@ -1,6 +1,6 @@
 body {
     background-color: #000000;
-    color: powderblue;
+    color: #e8eaed;
 }
 
 hr {
@@ -75,6 +75,7 @@ hr {
 }
 
 .profile-icon-container {
+    cursor: pointer;
     max-width: 105px;
     display: flex;
     align-items: center;
@@ -89,7 +90,6 @@ hr {
 
 .profile-icon-container .username {
     font-size: 15px;
-    cursor: pointer;
     overflow: hidden;
     text-overflow: ellipsis;
     
@@ -135,7 +135,6 @@ hr {
     box-shadow: 0 0 3px powderblue;
     outline: none;
 }
-
 
 .button-container {
     position: relative;
@@ -202,16 +201,11 @@ hr {
     }
 
     .search-bar {
-        /* position: absolute;
-        width: 265px; */
         height: 100%;
         width: 100%;
         padding: 5px;
         padding-left: 30px;
         font-size: 14px;
-        /* left: -234px;
-        top: -4px; */
-        /* height: 41px; */
     }
 
     .search-icon {
