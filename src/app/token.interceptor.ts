@@ -1,8 +1,10 @@
+import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import 'rxjs/add/operator/do'
+import * as NotesActions from "./store/actions";
 
 
 
@@ -10,7 +12,7 @@ import 'rxjs/add/operator/do'
 
 export class TokenInterceptor implements HttpInterceptor{
 
-    constructor(private auth: AuthenticationService, private route: Router){}
+    constructor(private auth: AuthenticationService, private route: Router, private store: Store<any> ){}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): any{
        let token = this.auth.Token;
@@ -30,7 +32,8 @@ export class TokenInterceptor implements HttpInterceptor{
             headers: newHeader
         });
 
-        return next.handle(request).do( response => {},  error => {    
+        return next.handle(request).do( response => {},  error => {  
+            this.store.dispatch(new NotesActions.RequestFailure());
             if(error.status == 401) {
                 this.route.navigate(['/login']);
             }

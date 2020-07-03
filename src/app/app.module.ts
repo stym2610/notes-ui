@@ -1,3 +1,4 @@
+import { LoaderComponent } from './loader/loader.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PopoverModule } from '../../other_modules/popover.module';
 import { TokenInterceptor } from './token.interceptor';
@@ -37,6 +38,7 @@ import { ChangeColorComponent } from './change-color/change-color.component';
 @NgModule({
   declarations: [
     AppComponent,
+    LoaderComponent,
     AddNoteComponent,
     DisplayNoteComponent,
     SearchPipe,

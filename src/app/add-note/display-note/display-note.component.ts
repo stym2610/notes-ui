@@ -46,7 +46,6 @@ export class DisplayNoteComponent implements OnInit{
   }
 
   changeColor(color){
-    console.log("event emited from change color component", color);
     this.changedColorEvent.emit(color);
   }
 

@@ -68,7 +68,10 @@
                 </div>  
                 <div class="error-box-container">
                     <div class="error-box" *ngIf="confirmPassword.touched && confirmPassword.invalid">
-                        <div *ngIf="confirmPassword.errors?.required">
+                        <div *ngIf="confirmPassword.errors?.required && password.errors?.required">
+                            Confirm password is required
+                        </div>
+                        <div *ngIf="confirmPassword.errors?.required && !password.errors?.required">
                             Please enter password to confirm
                         </div>
                     </div>

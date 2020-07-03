@@ -1,4 +1,3 @@
-import { NOTE } from './../add-note';
 import { Action } from '@ngrx/store';
 
 export type NotesActionType = GetNotes | AddNote | UpdateNote | DeleteNote | Logout;
@@ -14,6 +13,10 @@ export const DELETE_NOTE_SUCCESS = 'DELETE_NOTE_SUCCESS';
 export const CHANGE_NOTE_COLOR = 'CHANGE_NOTE_COLOR';
 export const CHANGE_NOTE_COLOR_SUCCESS = 'CHANGE_NOTE_COLOR_SUCCESS';
 export const LOGOUT = 'LOGOUT';
+export const LOADING_STARTED = 'LOADING_STARTED';
+export const LOADING_COMPLETED = 'LOADING_COMPLETED';
+export const REQUEST_FAILURE = 'REQUEST_FAILURE';
+
 
 export class GetNotes implements Action {
     type = GET_NOTES;
@@ -70,5 +73,19 @@ export class Logout implements Action {
     constructor(public payload? : any){}
 }
 
+export class LoadingCompleted implements Action {
+    type = LOADING_COMPLETED;
+    constructor(public payload? : any){}
+}
+
+export class LoadingStarted implements Action {
+    type = LOADING_STARTED;
+    constructor(public payload? : any){}
+}
+
+export class RequestFailure implements Action {
+    type = REQUEST_FAILURE;
+    constructor(public payload? : any){}
+}
 
 

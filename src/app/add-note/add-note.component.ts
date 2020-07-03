@@ -2,7 +2,7 @@ import { UserService } from './../user.service';
 import { Observable } from 'rxjs';
 import { GET_NOTES } from './../store/actions';
 import { NotesService } from './../service/notes.service';
-import { Component, Output, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as NotesActions from '../store/actions';
 import { PopoverComponent } from '../../../other_modules/popover.module';
@@ -86,7 +86,6 @@ export class AddNoteComponent implements OnInit {
   }
 
   changeColor(note, color){
-    console.log("event emited from display note component", note, color);
     let editedNote = {
       userId: note.userId,
       id: note.id,
