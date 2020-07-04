@@ -55,11 +55,6 @@ export class AddNoteComponent implements OnInit {
   getNotes(){
     this.store.dispatch({ type: GET_NOTES });
     this.notesDataObservable = this.store.select("notesList");
-    console.log("getNotes executed");
-    this.notesDataObservable.subscribe(state => {
-      console.log('from state suscription');
-      console.log(state);
-    })
   }
 
   addNote(note: HTMLInputElement){
