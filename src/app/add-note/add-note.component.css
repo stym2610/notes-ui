@@ -8,13 +8,16 @@ hr {
     background-color: grey;
 }
 
-.navbar {
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: none !important;
     padding: 8px 8px;
     border-bottom: 1px solid grey;
 }
 
 .note-icon-container {
-    display: flex;
+    display: flex !important;
     align-items: center;
 }
 
@@ -70,6 +73,21 @@ hr {
     outline: none;
 }
 
+.sync-and-profile-container {
+    display: flex;
+}
+
+.sync-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #ffffff;
+}
+
 .profile-icon-container {
     cursor: pointer;
     max-width: 105px;
@@ -79,7 +97,7 @@ hr {
 }
 
 .profile-icon-container .user-icon {
-    font-size: 25px;
+    font-size: 23px;
     margin-right: 5px;
     color: #e8eaed;
 }
@@ -88,7 +106,6 @@ hr {
     font-size: 15px;
     overflow: hidden;
     text-overflow: ellipsis;
-    
     text-align: left;
 }
 
@@ -195,7 +212,7 @@ hr {
         width: 30px;
         height: 32px;
         position: relative;
-        margin-right: 5px;
+        margin-right: 11px;
     }
 
     .search-bar {

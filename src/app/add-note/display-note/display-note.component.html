@@ -9,14 +9,14 @@
     </div>
 </div> -->
 
-<div class="box" @fade [style.backgroundColor]="displayNote.color">
+<div class="box" [style.backgroundColor]="displayNote.color">
     <div class="text"  (click)="openDialog()">
         {{ displayNote.value }}
         <!-- <div
-            class="btn btn-defult btn-sm pinButton" 
+            class="btn btn-defult btn-sm pin-container" 
             [class.isPinned]="isPinned" 
             (click)="onClickPin()">
-            <span class="w3-large fa fa-map-marker">
+            <span class="w3-large fa fa-map-marker pin-icon">
             </span>
         </div> -->
     </div>
@@ -25,34 +25,34 @@
         <div class="icon material-icons"  
              matTooltip="not working"
              [matTooltipPosition]="'above'">
-             notifications_none
+                notifications_none
         </div>
         <div class="icon material-icons"  
              matTooltip="not working"
              [matTooltipPosition]="'above'">
-             person_add_alt_1
+                person_add_alt_1
         </div>
         <div class="icon material-icons"  
              matTooltip="change color"
              [matTooltipPosition]="'above'"
              (click)="openMenuOptionsPopup($event)">
-             palette
+                palette
         </div>
         <div class="icon material-icons"  
              matTooltip="not working"
              [matTooltipPosition]="'above'">
-             insert_photo
+                insert_photo
         </div>
         <div class="icon material-icons"  
              matTooltip="not working"
              [matTooltipPosition]="'above'">
-             archive
+                archive
         </div>
         <div class="icon material-icons"
              matTooltip="delete"
              [matTooltipPosition]="'above'"
              (click)="onClickDelete()">
-             delete
+                delete
         </div>
     </div> 
     <gs-popover [closeOnClick]="true"  #menuOptionsPopup>

@@ -6,7 +6,7 @@ export let fadeInAnimation = animation([
     animate('{{ duration }} {{ easing }}')
 ], {
     params: {
-        duration: '2s',
+        duration: '800ms',
         easing: 'ease-out'
     }
 });
@@ -14,6 +14,12 @@ export let fadeInAnimation = animation([
 export let fadeOutAnimation = animation(
     animate(500, style({ opacity: 0}))
 );
+
+export let fadeIn = trigger('fade', [
+    transition(':enter', 
+        useAnimation(fadeInAnimation)
+    )
+]);
 
 export let fade = trigger('fade', [
     transition(':enter', 

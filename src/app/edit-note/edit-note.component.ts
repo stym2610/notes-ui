@@ -12,7 +12,6 @@ import * as NotesActions from '../store/actions';
 export class EditNoteComponent {
 
   editedNote;
-  userId;
   newText;
   id;
   isPinned;
@@ -20,18 +19,16 @@ export class EditNoteComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public note: any, 
               private dialogRef: MatDialogRef<any>,
-              private store: Store<{ notesList : { notes : NOTE[] } }>) {
+              private store: Store<any>) {
     this.newText = note.value;
     this.id = note.id;
     this.isPinned = note.isPinned;
-    this.userId = note.userId;
     this.color = note.color;
   }
 
   closeDialog(){
     this.dialogRef.close();
     this.editedNote = {
-      userId: this.userId,
       id: this.id,
       value: this.newText,
       isPinned : this.isPinned,

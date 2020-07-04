@@ -3,26 +3,51 @@ import * as NotesActions from './actions'
 
 export interface NOTES {
     notes : NOTE[],
-    isLoading: boolean
+    syncLoader: boolean,
+    pageLoader: boolean
 }
 
 export const INITIAL_STATE = {
     notes: null,
-    isLoading: false
+    syncLoader: false,
+    pageLoader: false
 }
 
 export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesActionType) {
     
     switch(action.type){
 
-        case NotesActions.GET_NOTES:
-        case NotesActions.ADD_NOTE:
-        case NotesActions.DELETE_NOTE:
+        case NotesActions.GET_NOTES:{
+            return {
+                ...state,
+                syncLoader: true,
+                pageLoader: true
+            }
+        }
+
+        case NotesActions.ADD_NOTE:{
+            let currentStateNotes = state.notes;
+            return{
+                ...state,
+                syncLoader: true,
+                notes: [...currentStateNotes, action.payload]
+            }
+        }
+        
         case NotesActions.UPDATE_NOTE:
         case NotesActions.CHANGE_NOTE_COLOR:{
             return {
                 ...state,
-                isLoading: true
+                syncLoader: true,
+                notes: state.notes.map(note => note.id === action.payload.id ? action.payload : note)
+            }
+        }
+
+        case NotesActions.DELETE_NOTE:{
+            return {
+                ...state,
+                syncLoader: true,
+                notes: state.notes.filter(note => note.id !== action.payload)
             }
         }
         
@@ -33,8 +58,9 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
         case NotesActions.CHANGE_NOTE_COLOR_SUCCESS:{
             return {
                 ...state,
-                notes : action.payload,
-                isLoading: false
+                notes: action.payload,
+                syncLoader: false,
+                pageLoader: false
             }
         }
 
@@ -42,7 +68,8 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
             return {
                 ...state,
                 notes : action.payload,
-                isLoading: false
+                syncLoader: false,
+                pageLoader: false
             }
         }
            

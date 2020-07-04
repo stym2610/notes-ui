@@ -18,11 +18,12 @@
     box-shadow: 0 0 2px powderblue;
 }
 
-.pinButton {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    color: grey;
+.pin-container {
+   display: block;
+   float: right;
+   background-color: white;
+   height: 35px;
+   width: 35px;
 }
 
 .pinButton:hover {

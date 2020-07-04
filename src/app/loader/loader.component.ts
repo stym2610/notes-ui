@@ -14,7 +14,7 @@ export class LoaderComponent{
   constructor(private store: Store<any>){
     this.storeObservable$ = this.store.select("notesList");
     this.storeObservable$.subscribe(state => {
-      this.isLoading = state.isLoading;
+      this.isLoading = state.pageLoader;
     });
   } 
 }

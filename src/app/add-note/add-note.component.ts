@@ -6,6 +6,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as NotesActions from '../store/actions';
 import { PopoverComponent } from '../../../other_modules/popover.module';
+import { fadeIn } from '../animations';
 
 
 export interface NOTE {
@@ -20,20 +21,22 @@ export interface NOTE {
   selector: 'add-note',
   templateUrl: './add-note.component.html',
   styleUrls: ['./add-note.component.css'],
-  animations: []
+  animations: [
+    fadeIn
+  ]
 })
 export class AddNoteComponent implements OnInit {
 
   @ViewChild("menuOptionsPopup", { static: false }) protected menuOptionsPopup: PopoverComponent;
   @ViewChild("searchBarReference", { static: false }) protected searchBarReference: ElementRef;
-  notesDataObservable : Observable<{ notes: NOTE[] }>;
+  notesDataObservable : Observable<any>;
   notes;
   searchString;
   userInfo;
   showSearchBox = false;
 
   constructor(private service: NotesService, 
-              private store: Store<{ notesList : { notes : NOTE[] } }>,
+              private store: Store<any>,
               private userService: UserService) {}
   
 
@@ -42,7 +45,7 @@ export class AddNoteComponent implements OnInit {
     this.userService.getUser()
       .subscribe((userInfo: any) => {
         this.userInfo = userInfo;
-      })
+      });  
   }
 
   trackNotes(index: number, note: NOTE){
@@ -52,22 +55,26 @@ export class AddNoteComponent implements OnInit {
   getNotes(){
     this.store.dispatch({ type: GET_NOTES });
     this.notesDataObservable = this.store.select("notesList");
+    console.log("getNotes executed");
+    this.notesDataObservable.subscribe(state => {
+      console.log('from state suscription');
+      console.log(state);
+    })
   }
 
   addNote(note: HTMLInputElement){
     if(note.value != "") {
       let body = {
-        value : note.value
+        value: note.value,
+        color: "#202124"
       };
       this.store.dispatch(new NotesActions.AddNote(body));
-      this.notesDataObservable = this.store.select("notesList");
       note.value = "";
     } 
   }
 
   deleteNote(note_id){
     this.store.dispatch(new NotesActions.DeleteNote(note_id));
-    this.notesDataObservable = this.store.select("notesList");
   }
 
   pinNote(note_id){
@@ -87,7 +94,6 @@ export class AddNoteComponent implements OnInit {
 
   changeColor(note, color){
     let editedNote = {
-      userId: note.userId,
       id: note.id,
       value: note.value,
       isPinned: note.isPinned,
