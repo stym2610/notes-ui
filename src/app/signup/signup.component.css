@@ -10,7 +10,6 @@
 
 form {
     position: relative;
-    /* background-color: #111f28; */
     padding: 15px 20px 10px;
     border-radius: 10px;
     width: 30%;
@@ -60,7 +59,7 @@ input:focus {
 }
 
 /* .fa-eye {
-    position: absolute;
+    position: absolute;                         //css for icon to show password
     right: 5px;
     top: 3px;
     font-size: 15px;

@@ -1,11 +1,11 @@
-import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+import { JwtHelper } from 'angular2-jwt';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as NotesActions from './store/actions'
+import * as NotesActions from '../store/actions'
 import { environment } from 'src/environments/environment';
 import { Store } from '@ngrx/store';
-import { NOTE } from './add-note';
+import { NOTE } from '../add-note';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class AuthenticationService {
 
   // private url = environment.API_URL;
 
-  private url = "https://notes--app-api.herokuapp.com";
-  // private url = "http://localhost:3000";
+  // private url = "https://notes--app-api.herokuapp.com";
+  private url = "http://localhost:3000";
 
   login(credentials){
     return this.http.post(this.url + '/authenticate', credentials)

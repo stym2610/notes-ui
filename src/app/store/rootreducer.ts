@@ -3,14 +3,22 @@ import * as NotesActions from './actions'
 
 export interface NOTES {
     notes : NOTE[],
-    syncLoader: boolean,
+    syncLoaderCount: number,
     pageLoader: boolean
 }
 
 export const INITIAL_STATE = {
     notes: null,
-    syncLoader: false,
+    syncLoaderCount: 0,
     pageLoader: false
+}
+
+function incrementSyncLoaderCount(loaderCount){
+    return loaderCount + 1;
+}
+
+function decrementSyncLoaderCount(loaderCount){
+    return loaderCount === 0 ? 0 : loaderCount - 1;
 }
 
 export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesActionType) {
@@ -20,7 +28,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
         case NotesActions.GET_NOTES:{
             return {
                 ...state,
-                syncLoader: true,
+                syncLoaderCount: incrementSyncLoaderCount(state.syncLoaderCount),
                 pageLoader: true
             }
         }
@@ -29,7 +37,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
             let currentStateNotes = state.notes;
             return{
                 ...state,
-                syncLoader: true,
+                syncLoaderCount: incrementSyncLoaderCount(state.syncLoaderCount),
                 notes: [...currentStateNotes, action.payload]
             }
         }
@@ -38,7 +46,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
         case NotesActions.CHANGE_NOTE_COLOR:{
             return {
                 ...state,
-                syncLoader: true,
+                syncLoaderCount: incrementSyncLoaderCount(state.syncLoaderCount),
                 notes: state.notes.map(note => note.id === action.payload.id ? action.payload : note)
             }
         }
@@ -46,7 +54,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
         case NotesActions.DELETE_NOTE:{
             return {
                 ...state,
-                syncLoader: true,
+                syncLoaderCount: incrementSyncLoaderCount(state.syncLoaderCount),
                 notes: state.notes.filter(note => note.id !== action.payload)
             }
         }
@@ -59,7 +67,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
             return {
                 ...state,
                 notes: action.payload,
-                syncLoader: false,
+                syncLoaderCount: decrementSyncLoaderCount(state.syncLoaderCount),
                 pageLoader: false
             }
         }
@@ -68,7 +76,7 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
             return {
                 ...state,
                 notes : action.payload,
-                syncLoader: false,
+                syncLoaderCount: decrementSyncLoaderCount(state.syncLoaderCount),
                 pageLoader: false
             }
         }

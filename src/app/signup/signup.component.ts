@@ -1,16 +1,16 @@
 import { SignupFieldValidators } from './signup-field.validators';
 import { Router } from '@angular/router';
 import { transition, style, animate, trigger, keyframes } from '@angular/animations';
-import { UserService } from './../user.service';
+import { UserService } from '../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+  styleUrls: ['./signup.component.css'],  
   animations: [
-    trigger('fadeIn', [
+    trigger('enterFromBottom', [
       transition(':enter', [
         style({ opacity: 0, fontSize: 0, transform: 'translateY(100%)'}),
         animate(500)

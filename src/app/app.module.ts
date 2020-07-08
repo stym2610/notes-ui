@@ -2,9 +2,9 @@ import { LoaderComponent } from './loader/loader.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PopoverModule } from '../../other_modules/popover.module';
 import { TokenInterceptor } from './token.interceptor';
-import { UserService } from './user.service';
-import { AuthGaurd } from './auth-gaurd.service';
-import { AuthenticationService } from './authentication.service';
+import { UserService } from './service/user.service';
+import { AuthGaurd } from './service/auth-gaurd.service';
+import { AuthenticationService } from './service/authentication.service';
 import { NotesService } from './service/notes.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ChangeColorComponent } from './change-color/change-color.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { ChangeColorComponent } from './change-color/change-color.component';
     LoginComponent,
     SignupComponent,
     UserProfileComponent,
-    ChangeColorComponent
+    ChangeColorComponent,
+    ForgetPasswordComponent,
+    ChangePasswordComponent
   ],
   entryComponents: [
     EditNoteComponent
@@ -62,7 +66,9 @@ import { ChangeColorComponent } from './change-color/change-color.component';
     RouterModule.forRoot([
       { path: '', component: AddNoteComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent }
+      { path: 'signup', component: SignupComponent },
+      { path: 'forgotpassword', component: ForgetPasswordComponent },
+      { path: 'changepassword', component: ChangePasswordComponent }
     ]),
     MatDialogModule,
     MatButtonModule,

@@ -23,6 +23,8 @@ export class DisplayNoteComponent implements OnInit{
   @Output('pinnote') pinNoteEvent = new EventEmitter();
   @Output() changedColorEvent = new EventEmitter();
 
+  deleteRequestSend: boolean = false;
+
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(){ }
@@ -34,7 +36,10 @@ export class DisplayNoteComponent implements OnInit{
   }
 
   onClickDelete(){
-    this.deleteNoteEvent.emit();
+    if(!this.deleteRequestSend){
+      this.deleteRequestSend = true
+      this.deleteNoteEvent.emit();
+    }
   }
 
   onClickPin(){

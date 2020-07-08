@@ -22,37 +22,37 @@
     </div>
      
     <div class="d-flex toolbar">
-        <div class="icon material-icons"  
-             matTooltip="not working"
-             [matTooltipPosition]="'above'">
-                notifications_none
+        <div class="icon material-icons"
+                matTooltip="not working"
+                [matTooltipPosition]="'above'">
+                    notifications_none
         </div>
         <div class="icon material-icons"  
-             matTooltip="not working"
-             [matTooltipPosition]="'above'">
-                person_add_alt_1
-        </div>
-        <div class="icon material-icons"  
-             matTooltip="change color"
-             [matTooltipPosition]="'above'"
-             (click)="openMenuOptionsPopup($event)">
-                palette
-        </div>
-        <div class="icon material-icons"  
-             matTooltip="not working"
-             [matTooltipPosition]="'above'">
-                insert_photo
-        </div>
-        <div class="icon material-icons"  
-             matTooltip="not working"
-             [matTooltipPosition]="'above'">
-                archive
+                matTooltip="not working"
+                [matTooltipPosition]="'above'">
+                    person_add_alt_1
         </div>
         <div class="icon material-icons"
-             matTooltip="delete"
-             [matTooltipPosition]="'above'"
-             (click)="onClickDelete()">
-                delete
+                matTooltip="change color"
+                [matTooltipPosition]="'above'"
+                (click)="openMenuOptionsPopup($event)">
+                    palette
+        </div>
+        <div class="icon material-icons"
+                matTooltip="not working"
+                [matTooltipPosition]="'above'">
+                    insert_photo
+        </div>
+        <div class="icon material-icons"  
+                matTooltip="not working"
+                [matTooltipPosition]="'above'">
+                    archive
+        </div>
+        <div class="icon material-icons"
+                matTooltip="delete"
+                [matTooltipPosition]="'above'"
+                (click)="onClickDelete()">
+                    delete
         </div>
     </div> 
     <gs-popover [closeOnClick]="true"  #menuOptionsPopup>

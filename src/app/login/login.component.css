@@ -75,6 +75,16 @@ h1 {
     box-shadow: 0 0 3px powderblue;
 }
 
+.forgot-password {
+    cursor: pointer;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: rgb(202, 202, 212);
+    text-shadow: 0 0 3px;
+}
+
 .signup-button {
     border: 1px solid powderblue;
     background: rgb(19, 77, 85);

@@ -1,4 +1,4 @@
-import { UserService } from './../user.service';
+import { UserService } from '../service/user.service';
 import { Observable } from 'rxjs';
 import { GET_NOTES } from './../store/actions';
 import { NotesService } from './../service/notes.service';
@@ -69,6 +69,7 @@ export class AddNoteComponent implements OnInit {
   }
 
   deleteNote(note_id){
+    console.log(note_id);
     this.store.dispatch(new NotesActions.DeleteNote(note_id));
   }
 
