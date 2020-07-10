@@ -4,13 +4,15 @@ import * as NotesActions from './actions'
 export interface NOTES {
     notes : NOTE[],
     syncLoaderCount: number,
-    pageLoader: boolean
+    pageLoader: boolean,
+    users: any
 }
 
 export const INITIAL_STATE = {
     notes: null,
     syncLoaderCount: 0,
-    pageLoader: false
+    pageLoader: false,
+    users: null
 }
 
 function incrementSyncLoaderCount(loaderCount){
@@ -78,6 +80,21 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
                 notes : action.payload,
                 syncLoaderCount: decrementSyncLoaderCount(state.syncLoaderCount),
                 pageLoader: false
+            }
+        }
+
+        case NotesActions.GET_USERS:{
+            return {
+                ...state,
+                pageLoader: true
+            }
+        }
+
+        case NotesActions.GET_USERS_SUCCESS:{
+            return {
+                ...state,
+                pageLoader: false,
+                users: action.payload
             }
         }
            

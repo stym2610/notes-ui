@@ -15,40 +15,15 @@ body {
     margin-right: 0;
 }
 
-
- .mat-dialog-container {
+.mat-dialog-container {
     padding: 15px 15px 10px !important;
     width: 600px !important;
     background-color: rgb(42, 42, 42) !important;
     border-radius: 20px !important;
     position: relative !important;
+    max-height: 463px !important;
 }
 
-.editbox {  
-    border: none;
-    width: 100%;
-    color: powderblue; 
-    margin-bottom: 40px;
-    word-wrap: break-word;
-}
 
-.editbox:focus {
-    outline: none;
-}
-
-.buttonContainer {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.closeDialogButton {
-    background: none;
-    border: none;
-    color: powderblue;
-}
-
-.closeDialogButton:focus {
-    outline: none;
-}
 
  

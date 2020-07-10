@@ -1,3 +1,4 @@
+import { UserService } from './../service/user.service';
 import { NotesService } from './../service/notes.service';
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
@@ -8,7 +9,7 @@ import { NOTE } from '../add-note/add-note.component';
 
 @Injectable()
 export class NotesEffects {
-   constructor(private actions$: Actions, private service: NotesService){}
+   constructor(private actions$: Actions, private service: NotesService, private userService: UserService){}
 
    @Effect() getNotes$ = this.actions$
         .pipe(
@@ -79,6 +80,16 @@ export class NotesEffects {
             })
          );
 
+   @Effect() getUsers$ = this.actions$
+         .pipe(
+            ofType(NotesActions.GET_USERS),
+            mergeMap(() => {
+               return this.userService.getAllUsers()
+                  .pipe(
+                     map(users => new NotesActions.GetUsersSuccess(users))
+                  )
+            })
+         );
 }
 
 

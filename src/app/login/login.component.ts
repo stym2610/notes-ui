@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   submit(formValue) {
+    this.invalidLogin = false;
     let subscription = this.auth.login(formValue)
       .subscribe(result => {
         if(result){

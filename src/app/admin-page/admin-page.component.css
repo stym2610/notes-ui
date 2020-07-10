@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: none !important;
+    padding: 8px 8px;
+    border-bottom: 1px solid grey;
+}
+
+.note-icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.note-icon-container .note-icon {
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.note-icon-container span {
+    font-size: 20px;
+    margin-left: 8px;
+    color: whitesmoke;
+}
+
+.user-table-body {
+    padding: 10px;
+}
+
+.user-table-container {
+    margin: 0px 10px;
+}
+
+.table-row:hover {
+    box-shadow: 0px 1px 3px;
+}

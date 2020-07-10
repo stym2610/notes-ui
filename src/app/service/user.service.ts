@@ -9,8 +9,8 @@ export class UserService {
 	
   // private url = environment.API_URL;
 
-    private url = "https://notes--app-api.herokuapp.com";
-    // private url = "http://localhost:3000";
+    // private url = "https://notes--app-api.herokuapp.com";
+    private url = "http://localhost:3000";
 
     constructor(private http: HttpClient){}
 
@@ -21,6 +21,10 @@ export class UserService {
 
     getUser(){
       return this.http.get(this.url + '/get-current-user');
+    }
+
+    getAllUsers(){
+      return this.http.get(this.url + '/get-all-users');
     }
 
     sendVerificationMail(body) {

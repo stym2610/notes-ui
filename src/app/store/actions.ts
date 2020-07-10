@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-export type NotesActionType = GetNotes | AddNote | UpdateNote | DeleteNote | Logout;
+export type NotesActionType = GetNotes | AddNote | UpdateNote | DeleteNote | GetUsers | Logout;
 
 export const GET_NOTES = 'GET_NOTES';
 export const GET_NOTES_SUCCESS = 'GET_NOTES_SUCCESS';
@@ -16,6 +16,8 @@ export const LOGOUT = 'LOGOUT';
 export const LOADING_STARTED = 'LOADING_STARTED';
 export const LOADING_COMPLETED = 'LOADING_COMPLETED';
 export const REQUEST_FAILURE = 'REQUEST_FAILURE';
+export const GET_USERS = 'GET_USERS';
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 
 
 export class GetNotes implements Action {
@@ -85,6 +87,16 @@ export class LoadingStarted implements Action {
 
 export class RequestFailure implements Action {
     type = REQUEST_FAILURE;
+    constructor(public payload? : any){}
+}
+
+export class GetUsers implements Action {
+    type = GET_USERS;
+    constructor(public payload? : any){}
+}
+
+export class GetUsersSuccess implements Action {
+    type = GET_USERS_SUCCESS;
     constructor(public payload? : any){}
 }
 

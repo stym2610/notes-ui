@@ -1,3 +1,4 @@
+import { AdminPageGaurdService } from './service/admin-page-gaurd.service';
 import { LoaderComponent } from './loader/loader.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PopoverModule } from '../../other_modules/popover.module';
@@ -36,6 +37,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ChangeColorComponent } from './change-color/change-color.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     UserProfileComponent,
     ChangeColorComponent,
     ForgetPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AdminPageComponent
   ],
   entryComponents: [
     EditNoteComponent
@@ -68,7 +71,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'forgotpassword', component: ForgetPasswordComponent },
-      { path: 'changepassword', component: ChangePasswordComponent }
+      { path: 'changepassword', component: ChangePasswordComponent },
+      { path: 'admin', component: AdminPageComponent, canActivate: [] }
     ]),
     MatDialogModule,
     MatButtonModule,
@@ -83,6 +87,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     NotesService, 
     AuthenticationService,
     AuthGaurd,
+    AdminPageGaurdService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,
