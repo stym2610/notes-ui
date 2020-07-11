@@ -10,7 +10,7 @@ export class UserService {
   // private url = environment.API_URL;
 
     private url = "https://notes--app-api.herokuapp.com";
-    // private url = "http://localhost:3000";
+    // private url = "http://localhost:3001";
 
     constructor(private http: HttpClient){}
 

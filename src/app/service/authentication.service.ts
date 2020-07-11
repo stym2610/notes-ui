@@ -13,12 +13,12 @@ import { NOTE } from '../add-note';
 
 export class AuthenticationService {
 
-  constructor(private http: HttpClient, private store: Store<{ notesList : { notes : NOTE[] } }>) {}
+  constructor(private http: HttpClient, private store: Store<any>) {}
 
   // private url = environment.API_URL;
 
   private url = "https://notes--app-api.herokuapp.com";
-  // private url = "http://localhost:3000";
+  // private url = "http://localhost:3001";
 
   login(credentials){
     return this.http.post(this.url + '/authenticate', credentials)

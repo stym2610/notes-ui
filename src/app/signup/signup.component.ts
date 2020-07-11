@@ -21,6 +21,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
 
   registeredStatus: boolean = false;
+  emailAvailable: boolean = true;
   registeredMessage: String;
   form: FormGroup;
 
@@ -54,11 +55,15 @@ export class SignupComponent implements OnInit {
       .subscribe( (response: any) => {
         this.registeredMessage = response.message;
         this.registeredStatus = response.status;
+          setTimeout(() => {
+            this.route.navigate(['/login']);
+          }, 2000);
+      }, errorResponse => {
+        this.registeredMessage = errorResponse.error.message;
+        this.emailAvailable = false;
         setTimeout(() => {
-          this.route.navigate(['/login']);
-        }, 2000);
-      }, error => {
-        alert("Unexpected error occured");
+          this.emailAvailable = true;
+        }, 3000);
       });
   }
 

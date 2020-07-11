@@ -87,7 +87,7 @@
         <div class="login-text" *ngIf="!registeredStatus">
             Already a user? <span class="route-to-login" routerLink="/login"> Login here..</span>
         </div>
-        <div class="register-message" *ngIf="registeredStatus" @enterFromBottom>
+        <div class="register-message" *ngIf="registeredStatus || !emailAvailable" @enterFromBottom>
             {{ registeredMessage }}
         </div>
 </div>
