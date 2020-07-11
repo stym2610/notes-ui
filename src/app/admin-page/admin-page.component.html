@@ -14,7 +14,7 @@
                     <th scope="col">UserId</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact no</th>
-                    <th scope="col">Registration Data</th>
+                    <th scope="col">Registration Date</th>
                     <th scope="col">Last Login</th>
                   </tr>
                 </thead>
@@ -25,7 +25,7 @@
                           <td>{{ user.userId }}</td>
                           <td>{{ user.email }}</td>
                           <td>{{ user.contact }}</td>
-                          <td>{{ user.createdOn | date: 'medium'}}</td>
+                          <td>{{ user.createdDate | date: 'medium'}}</td>
                           <td>{{ user.lastLogin | date: 'medium'}}</td>
                         </tr>
                     </ng-container>
