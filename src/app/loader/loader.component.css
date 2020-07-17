@@ -6,13 +6,12 @@ p {
   font-family: Lato;
 }
 
-.h-1000{
-  height: 1000px;
+.container {
+  height: 100vh;;
 }
 
 #loader {
   bottom: 0;
-  height: 1000px;
   left: 0;
   margin: auto;
   position: fixed;

@@ -36,6 +36,10 @@ export class TokenInterceptor implements HttpInterceptor{
             this.store.dispatch(new NotesActions.RequestFailure());
             if(error.status == 401) {
                 this.route.navigate(['/login']);
+            } else if(error.error.message == 'internal serve error or user does not exist') {
+                console.log(error);
+                localStorage.removeItem('token');
+                this.route.navigate(['/login']);
             }
         });
     }

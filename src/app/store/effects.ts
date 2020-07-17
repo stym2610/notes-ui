@@ -48,7 +48,7 @@ export class NotesEffects {
             mergeMap(payload => {
                return this.service.updateNote(payload)
                   .pipe(
-                     map((notes: NOTE[]) => new NotesActions.UpdateNoteSuccess(notes))
+                     map(() => new NotesActions.UpdateNoteSuccess())
                   )
             })
          );
@@ -62,7 +62,7 @@ export class NotesEffects {
             mergeMap(payload => {
                return this.service.updateNote(payload)
                   .pipe(
-                     map((notes: NOTE[]) => new NotesActions.ChangeNoteColorSuccess(notes))
+                     map(() => new NotesActions.ChangeNoteColorSuccess())
                   )
             })
          );
@@ -75,7 +75,7 @@ export class NotesEffects {
             mergeMap(payload => {
                return this.service.deleteNote(payload)
                   .pipe(
-                     map((notes: NOTE[]) => new NotesActions.DeleteNoteSuccess(notes))
+                     map(() => new NotesActions.DeleteNoteSuccess())
                   )
             })
          );

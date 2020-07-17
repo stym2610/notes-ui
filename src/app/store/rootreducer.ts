@@ -62,13 +62,20 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
         }
         
         case NotesActions.GET_NOTES_SUCCESS:
-        case NotesActions.ADD_NOTE_SUCCESS:
-        case NotesActions.DELETE_NOTE_SUCCESS:
-        case NotesActions.UPDATE_NOTE_SUCCESS:
-        case NotesActions.CHANGE_NOTE_COLOR_SUCCESS:{
+        case NotesActions.ADD_NOTE_SUCCESS:{
             return {
                 ...state,
                 notes: action.payload,
+                syncLoaderCount: decrementSyncLoaderCount(state.syncLoaderCount),
+                pageLoader: false
+            }
+        }
+
+        case NotesActions.UPDATE_NOTE_SUCCESS:
+        case NotesActions.CHANGE_NOTE_COLOR_SUCCESS:
+        case NotesActions.DELETE_NOTE_SUCCESS:{
+            return {
+                ...state,
                 syncLoaderCount: decrementSyncLoaderCount(state.syncLoaderCount),
                 pageLoader: false
             }

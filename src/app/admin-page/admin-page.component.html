@@ -25,8 +25,8 @@
                           <td>{{ user.userId }}</td>
                           <td>{{ user.email }}</td>
                           <td>{{ user.contact }}</td>
-                          <td>{{ user.createdDate | date: 'medium'}}</td>
-                          <td>{{ user.lastLogin | date: 'medium'}}</td>
+                          <td>{{ +user.registrationDate | date: 'medium'}}</td>
+                          <td>{{ +user.lastLogin | date: 'medium'}}</td>
                         </tr>
                     </ng-container>
                 </tbody>
