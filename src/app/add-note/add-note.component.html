@@ -40,29 +40,36 @@
             (keyup.enter)="addNote(note)"
             class="add-note-field">
         </div>
+        
+        <ng-container *ngIf="pinnedNotesArrayObservable">
+            <ng-container *ngIf="(pinnedNotesArrayObservable | async).length">
+                <h1 class="pinned-heading">PINNED</h1>
+                <div class="flex-container-pinned">
+                    <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString); trackBy: trackNotes">
+                        <display-note 
+                            *ngIf="note.isPinned"    
+                            [displayNote]="note"
+                            [isPinned]="note.isPinned"
+                            (pinnote)="pinNote(note)"
+                            (changedColorEvent)="changeColor(note, $event)"
+                            (deletenote)="deleteNote(note.id)">      
+                        </display-note>
+                    </ng-container>   
+                </div>
+            </ng-container>
+        </ng-container>
     
-        <div class="flex-container">
-            <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString); trackBy: trackNotes">
-                <display-note 
-                    *ngIf="note.isPinned"    
-                    [displayNote]="note"
-                    [isPinned]="note.isPinned"
-                    (pinnote)="pinNote(note.id)"
-                    (changedColorEvent)="changeColor(note, $event)"
-                    (deletenote)="deleteNote(note.id)">      
-                </display-note>
-            </ng-container>   
-        </div>
-    
-        <br><br>
-    
-        <div class="flex-container">
+        <ng-container *ngIf="pinnedNotesArrayObservable">
+            <h1 class="other-heading" *ngIf="(pinnedNotesArrayObservable | async).length &&
+                                             ((notesDataObservable | async).notes.length != (pinnedNotesArrayObservable | async).length)">OTHER</h1>
+        </ng-container>
+        <div class="flex-container-other">
             <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString); trackBy: trackNotes">
                 <display-note
                     *ngIf="!note.isPinned"    
                     [displayNote]="note"
-                    [isPinned]="note.isPinned"
-                    (pinnote)="pinNote(note.id)"
+                    [isPinned]="!!note.isPinned"
+                    (pinnote)="pinNote(note)"
                     (changedColorEvent)="changeColor(note, $event)"
                     (deletenote)="deleteNote(note.id)">      
                 </display-note>

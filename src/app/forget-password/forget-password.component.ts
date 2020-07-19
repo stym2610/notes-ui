@@ -1,6 +1,8 @@
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import *  as NotesActions from '../store/actions';
 
 @Component({
   selector: 'forget-password',
@@ -13,7 +15,7 @@ export class ForgetPasswordComponent implements OnInit {
   isError: boolean;
   isSuccess: boolean;
 
-  constructor(private userService: UserService, private fb: FormBuilder) { }
+  constructor(private userService: UserService, private fb: FormBuilder, private store: Store<any>) { }
 
   ngOnInit(): void {
     this.form = this.createForm();
@@ -27,14 +29,18 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   sendVerificationMail() {
+    this.store.dispatch(new NotesActions.LoadingStarted);
+    this.isSuccess = this.isError = false;
     let body = {
       email: this.email.value
     };
     this.userService.sendVerificationMail(body)
       .subscribe((response: any) => {
+        this.store.dispatch(new NotesActions.LoadingCompleted);
         this.isSuccess = response.status;
         this.isError = false;
       }, response => {
+        this.store.dispatch(new NotesActions.LoadingCompleted);
         this.isError = !response.error.status;
         this.isSuccess = false;
       });

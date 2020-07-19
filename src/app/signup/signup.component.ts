@@ -4,6 +4,8 @@ import { transition, style, animate, trigger, keyframes } from '@angular/animati
 import { UserService } from '../service/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import * as NotesActions from '../store/actions';
 
 @Component({
   selector: 'app-signup',
@@ -25,7 +27,7 @@ export class SignupComponent implements OnInit {
   registeredMessage: String;
   form: FormGroup;
 
-  constructor(private service: UserService, private route: Router, private fb: FormBuilder) {}
+  constructor(private service: UserService, private route: Router, private fb: FormBuilder, private store: Store<any>) {}
 
   ngOnInit(): void {
     this.form = this.createForm();
@@ -50,15 +52,18 @@ export class SignupComponent implements OnInit {
   }
 
   onRegister() {
+    this.store.dispatch(new NotesActions.LoadingStarted());
     delete this.form.value["confirmPassword"];
      this.service.setUser(this.form.value)
       .subscribe( (response: any) => {
+        this.store.dispatch(new NotesActions.LoadingCompleted());
         this.registeredMessage = response.message;
         this.registeredStatus = response.status;
           setTimeout(() => {
             this.route.navigate(['/login']);
           }, 2000);
       }, errorResponse => {
+        this.store.dispatch(new NotesActions.LoadingCompleted);
         this.registeredMessage = errorResponse.error.message;
         this.emailAvailable = false;
         setTimeout(() => {

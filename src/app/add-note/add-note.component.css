@@ -118,17 +118,12 @@ hr {
     padding: 0 20px;
 }
 
-.flex-container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 85%;
-    margin-bottom: 20px;
-}
 .add-note-field-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     width: 100%;
+    margin-bottom: 23px
 }
 
 .add-note-field {
@@ -149,6 +144,29 @@ hr {
     box-shadow: 0 0 3px powderblue;
     outline: none;
 }
+
+.other-heading, .pinned-heading {
+    width: 85%;
+    line-height: 9px;
+    font-size: 13px;
+    margin-bottom: 0px;
+    margin-left: 23px;
+}
+
+.flex-container-pinned, .flex-container-other{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+}
+
+.flex-container-pinned {
+    margin-bottom: 66px;
+}
+
+.flex-container-other {
+    margin-bottom: 20px;
+}
+
 
 .button-container {
     position: relative;
@@ -242,8 +260,13 @@ hr {
         width: 100%;
     }
 
+    .other-heading, .pinned-heading {
+        width: 94%;
+        font-size: 13px;
+        margin-left: 0px;
+    }
 
-    .flex-container {
+    .flex-container-pinned, .flex-container-other {
         width: 100%;
         padding: 0 5px;
     }

@@ -104,7 +104,20 @@ export function rootReducer(state = INITIAL_STATE, action: NotesActions.NotesAct
                 users: action.payload
             }
         }
-           
+        
+        case NotesActions.LOADING_STARTED:{
+            return {
+                ...state,
+                pageLoader: true
+            }
+        }
+        case NotesActions.LOADING_COMPLETED:{
+            return {
+                ...state,
+                pageLoader: false
+            }
+        }
+        
         case NotesActions.LOGOUT:{
             return {
                 ...state,

@@ -75,13 +75,13 @@ export class Logout implements Action {
     constructor(public payload? : any){}
 }
 
-export class LoadingCompleted implements Action {
-    type = LOADING_COMPLETED;
+export class LoadingStarted implements Action {
+    type = LOADING_STARTED;
     constructor(public payload? : any){}
 }
 
-export class LoadingStarted implements Action {
-    type = LOADING_STARTED;
+export class LoadingCompleted implements Action {
+    type = LOADING_COMPLETED;
     constructor(public payload? : any){}
 }
 
