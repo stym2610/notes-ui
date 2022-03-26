@@ -17,8 +17,8 @@ export class AuthenticationService {
 
   // private url = environment.API_URL;
 
-  private url = "https://notes--app-api.herokuapp.com";
-  // private url = "http://localhost:3001";
+  // private url = "https://notes--app-api.herokuapp.com";
+  private url = "http://localhost:3001";
 
   login(credentials){
     return this.http.post(this.url + '/authenticate', credentials)

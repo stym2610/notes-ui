@@ -72,7 +72,6 @@ export class ChangePasswordComponent implements OnInit {
           .subscribe((response: any) => {
             this.changePasswordRequestStatus = response.status;
             this.changePasswordRequestMessage = response.message;
-            debugger;
             setTimeout(() => {
               this.route.navigate(['/login']);
             }, 2000);

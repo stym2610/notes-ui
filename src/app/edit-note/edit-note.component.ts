@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { NOTE } from '../add-note';
 import * as NotesActions from '../store/actions';
 
 @Component({
@@ -18,7 +17,7 @@ export class EditNoteComponent {
               private dialogRef: MatDialogRef<any>,
               private store: Store<any>) {
                 this.newText = note.value;
-               }
+              }
 
   closeDialog(){
     this.dialogRef.close();
@@ -31,5 +30,4 @@ export class EditNoteComponent {
     if(this.editedNote.value && this.newText != this.note.value)
       this.store.dispatch(new NotesActions.UpdateNote(this.editedNote)); 
   }
-
 }

@@ -11,8 +11,8 @@ export class NotesService {
 
   // private url = environment.API_URL;
 
-  private url = "https://notes--app-api.herokuapp.com/notes";
-  // private url = "http://localhost:3001/notes";
+  // private url = "https://notes--app-api.herokuapp.com/notes";
+  private url = "http://localhost:3001/notes";
 
   constructor(private http: HttpClient) { }
 
