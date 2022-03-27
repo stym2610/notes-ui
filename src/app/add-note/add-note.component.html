@@ -1,83 +1,136 @@
-<div  *ngIf="(notesDataObservable | async).notes && userInfo">
-    <div class="header">
-        <div [style.display]="!showSearchBox ? 'flex' : 'none'" class="note-icon-container">
-            <i class="fa fa-sticky-note-o note-icon"></i>
-            <span>NOTES</span>
-        </div>
-        <div [style.flex-grow]="showSearchBox ? 1 : 0" class="search-bar-container">
-            <div class="arrow-icon-container" [style.display]="showSearchBox ? 'block' : 'none'">
-                <mat-icon (click)="deleteSearchString()" class="arrow-icon">keyboard_backspace</mat-icon>
-                <input
-                    type="text"
-                    class="search-bar"
-                    placeholder="Search Notes"
-                    [(ngModel)]="searchString"
-                    #searchBarReference>
+<div *ngIf="(notesDataObservable | async).notes && userInfo">
+  <div class="header">
+    <div
+      [style.display]="!showSearchBox ? 'flex' : 'none'"
+      class="note-icon-container"
+    >
+      <i class="fa fa-sticky-note-o note-icon"></i>
+      <span>NOTES</span>
+    </div>
+    <div [style.flex-grow]="showSearchBox ? 1 : 0" class="search-bar-container">
+      <div
+        class="arrow-icon-container"
+        [style.display]="showSearchBox ? 'block' : 'none'"
+      >
+        <mat-icon (click)="deleteSearchString()" class="arrow-icon"
+          >keyboard_backspace</mat-icon
+        >
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search Notes"
+          [(ngModel)]="searchString"
+          #searchBarReference
+        />
+      </div>
+      <i
+        [style.display]="!showSearchBox ? 'block' : 'none'"
+        (click)="showSearchBar()"
+        class="fa fa-search search-icon"
+        aria-hidden="true"
+      ></i>
+    </div>
+    <div class="sync-and-profile-container">
+      <div class="sync-icon">
+        <span
+          @fade
+          *ngIf="!(notesDataObservable | async).syncLoaderCount"
+          class="material-icons"
+          >cloud_done</span
+        >
+        <mat-spinner
+          *ngIf="(notesDataObservable | async).syncLoaderCount"
+          diameter="20"
+        ></mat-spinner>
+      </div>
+      <div
+        class="profile-icon-container"
+        (click)="openMenuOptionsPopup($event)"
+      >
+        <i class="fa fa-user-circle-o user-icon"></i>
+        <span class="username">{{ firstname | titlecase }}</span>
+        <gs-popover [closeOnClick]="false" #menuOptionsPopup>
+          <user-profile
+            [name]="userInfo.name"
+            [email]="userInfo.email"
+          ></user-profile>
+        </gs-popover>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes-body-section">
+    <div class="add-note-field-container">
+        <div class="mic-input-container">
+            <div class="mic-icon material-icons"
+                 (click) = "toggleListen()">
+              mic
             </div>
-            <i [style.display]="!showSearchBox ? 'block' : 'none'" (click)="showSearchBar()" class="fa fa-search search-icon" aria-hidden="true"></i>
-        </div>
-        <div class="sync-and-profile-container">
-            <div class="sync-icon">
-                <span @fade *ngIf="!(notesDataObservable | async).syncLoaderCount" class="material-icons">cloud_done</span>
-                <mat-spinner *ngIf="(notesDataObservable | async).syncLoaderCount" diameter="20"></mat-spinner>
-            </div>
-            <div class="profile-icon-container" (click)="openMenuOptionsPopup($event)">
-                <i class="fa fa-user-circle-o user-icon"></i>
-                <span class="username">{{ firstname | titlecase }}</span>
-                <gs-popover [closeOnClick]="false" #menuOptionsPopup>
-                    <user-profile [name]="userInfo.name" [email]="userInfo.email"></user-profile> 
-                </gs-popover>
-            </div>
-        </div>
-    </div>     
-    
-    <div class="notes-body-section">
-        <div class="add-note-field-container">
             <input
-            type="text" 
-            placeholder="Add note here..."
-            #note
-            (keyup.enter)="addNote(note)"
-            class="add-note-field">
-        </div>
-        
-        <ng-container *ngIf="pinnedNotesArrayObservable">
-            <ng-container *ngIf="(pinnedNotesArrayObservable | async).length">
-                <h1 class="pinned-heading">PINNED</h1>
-                <div class="flex-container-pinned">
-                    <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString); trackBy: trackNotes">
-                        <display-note 
-                            *ngIf="note.isPinned"    
-                            [displayNote]="note"
-                            [isPinned]="note.isPinned"
-                            (pinnote)="pinNote(note)"
-                            (changedColorEvent)="changeColor(note, $event)"
-                            (deletenote)="deleteNote(note.id)">      
-                        </display-note>
-                    </ng-container>   
-                </div>
-            </ng-container>
-        </ng-container>
-    
-        <ng-container *ngIf="pinnedNotesArrayObservable">
-            <h1 class="other-heading" *ngIf="(pinnedNotesArrayObservable | async).length &&
-                                             ((notesDataObservable | async).notes.length != (pinnedNotesArrayObservable | async).length)">OTHER</h1>
-        </ng-container>
-        <div class="flex-container-other">
-            <ng-container *ngFor="let note of ((notesDataObservable | async).notes | searchFilter: searchString); trackBy: trackNotes">
-                <display-note
-                    *ngIf="!note.isPinned"    
-                    [displayNote]="note"
-                    [isPinned]="!!note.isPinned"
-                    (pinnote)="pinNote(note)"
-                    (changedColorEvent)="changeColor(note, $event)"
-                    (deletenote)="deleteNote(note.id)">      
-                </display-note>
-            </ng-container>   
+              type="text"
+              placeholder="Add note here..."
+              [(ngModel)]="noteContent"
+              (keyup.enter)="addNote()"
+              class="add-note-field"
+            />
         </div>
     </div>
-    
+
+    <ng-container *ngIf="pinnedNotesArrayObservable">
+      <ng-container *ngIf="(pinnedNotesArrayObservable | async).length">
+        <h1 class="pinned-heading">PINNED</h1>
+        <div class="flex-container-pinned">
+          <ng-container
+            *ngFor="
+              let note of (notesDataObservable | async).notes
+                | searchFilter: searchString;
+              trackBy: trackNotes
+            "
+          >
+            <display-note
+              *ngIf="note.isPinned"
+              [displayNote]="note"
+              [isPinned]="note.isPinned"
+              (pinnote)="pinNote(note)"
+              (changedColorEvent)="changeColor(note, $event)"
+              (deletenote)="deleteNote(note.id)"
+            >
+            </display-note>
+          </ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="pinnedNotesArrayObservable">
+      <h1
+        class="other-heading"
+        *ngIf="
+          (pinnedNotesArrayObservable | async).length &&
+          (notesDataObservable | async).notes.length !=
+            (pinnedNotesArrayObservable | async).length
+        "
+      >
+        OTHER
+      </h1>
+    </ng-container>
+    <div class="flex-container-other">
+      <ng-container
+        *ngFor="
+          let note of (notesDataObservable | async).notes
+            | searchFilter: searchString;
+          trackBy: trackNotes
+        "
+      >
+        <display-note
+          *ngIf="!note.isPinned"
+          [displayNote]="note"
+          [isPinned]="!!note.isPinned"
+          (pinnote)="pinNote(note)"
+          (changedColorEvent)="changeColor(note, $event)"
+          (deletenote)="deleteNote(note.id)"
+        >
+        </display-note>
+      </ng-container>
+    </div>
+  </div>
 </div>
-
-        
-
